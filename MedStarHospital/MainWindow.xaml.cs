@@ -23,6 +23,8 @@ namespace MedStarHospital
         public MainWindow()
         {
             InitializeComponent();
+
+            MessageBox.Show("Hello people");
         }
     }
 }
