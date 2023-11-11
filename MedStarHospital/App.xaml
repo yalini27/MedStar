@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:MedStarHospital"
              StartupUri="View/LoginPageView.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ButtonDesign1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
