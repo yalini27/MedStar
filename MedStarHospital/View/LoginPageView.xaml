@@ -1,0 +1,41 @@
+﻿<Window x:Class="MedStarHospital.View.LoginPageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedStarHospital.View"
+         xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        mc:Ignorable="d"
+        Title="LoginPageView" Height="800" Width="1300" WindowStyle="None" Background="Transparent" AllowsTransparency="True" WindowState="Maximized" WindowStartupLocation="CenterScreen">
+    <Grid Background="#115667" >
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Medstar Hospital" FontSize="100" FontFamily="Algerian" Foreground="White" Margin="500 20 00 00" />
+                <TextBlock Text="Your best life is our best" FontSize="48" TextAlignment="Center" Foreground="White" Margin="650 0 0 0" FontWeight="SemiBold" FontFamily="times new roman" />
+            </StackPanel>
+            <Button Height="40" Width="100" Background="DodgerBlue" Content="About" FontSize="30" FontFamily="times new roman" Command="{Binding cmdAbout}" Foreground="White" VerticalAlignment="Top"  Margin="300 30 00 00"/>
+            <Button  fa5:Awesome.Content="Solid_WindowClose"   FontSize="30" Command="{Binding cmdExit}"  Foreground="Red" VerticalAlignment="Top" Margin="20 30 00 00" BorderBrush="Transparent" />
+        </StackPanel>
+
+        <Border CornerRadius="50" Background="White" Height="500" Width="1000">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="\Image\Hospital1.jpg" Width="600" />
+                <Border BorderBrush="#115667" BorderThickness="2" CornerRadius="20" Margin="00 45 00 45" Width="386">
+                    <StackPanel Orientation="Vertical" >
+                        <Label fa5:Awesome.Content="Solid_User" FontSize="120" Foreground="#115667" HorizontalAlignment="Center" />
+                        <Label Content="LOGIN" FontSize="30" Foreground="#115667" FontFamily="times new roman" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" Margin="10 30 00 00">
+                            <TextBlock Text="User Name" Height="30" Width="150" FontSize="25"  FontWeight="Black" FontFamily="times new roman" />
+                            <ComboBox Height="30" Width="150" Margin="30 0 0 0" ItemsSource="{Binding UserList}" SelectedValue="{Binding SelectedUser, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="UserName" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Password" Height="30" Margin="10 20 00 00" Width="150" FontSize="25" FontWeight="Black" FontFamily="times new roman" />
+                            <PasswordBox Height="30" Width="150" Margin="30 20 0 0"  x:Name="Password" />
+                        </StackPanel>
+                        <Button Height="40" Width="100" Content="Login" Style="{DynamicResource ButtonStyle1}" Command="{Binding cmdLogin}" CommandParameter="{Binding ElementName=Password}" FontSize="20" Margin="0 20 0 0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
