@@ -1,5 +1,5 @@
 ﻿using MedStarHospital.Model;
-using HospitalManagement.View;
+using MedStarHospital.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
