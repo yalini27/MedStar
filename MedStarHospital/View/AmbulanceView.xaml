@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="MedStarHospital.View.AmbulanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MedStarHospital.View"
+             mc:Ignorable="d" 
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+              d:DesignHeight="{Binding Height, Source={x:Static SystemParameters.WorkArea}}" 
+             d:DesignWidth="{Binding Width, Source={x:Static SystemParameters.WorkArea}}">
+    <Grid Background="CadetBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Background="CadetBlue" Margin="00 10 00 00">
+            <Border Background="CadetBlue">
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <Image Height="150" Width="150" Source="\Image\Ambulance.png" Margin="30 0 0 0"/>
+                        <TextBlock Text="Ambulance Management"   FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label  Content="Search Option" FontSize="35"  Margin="500 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                        <StackPanel Orientation="Vertical">
+                            <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
+                                <ComboBoxItem Content="Ambulance ID"/>
+                                <!--<ComboBoxItem Content="Status"/>-->
+
+                                <ComboBoxItem Content="Driver Name"/>
+
+
+                            </ComboBox>
+                            <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman"/>
+
+
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAdd}" FontSize="20" FontWeight="Black"  Margin="50 5 0 0" />
+                                <Button Style="{DynamicResource ButtonStyle1}" Content="Reset" Command="{Binding cmdReset}"  FontSize="20" FontWeight="Black"  Margin="10 5 0 0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Border>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding AmbulanceList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="DodgerBlue"/>
+                        </Grid.Effect>
+
+                        <Button Margin="20" Background="White" Height="300" Width="300" Style="{DynamicResource ButtonStyle2}" Command="{Binding Path=DataContext.cmdOption,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type ListView}}}" CommandParameter="{Binding}">
+
+                            <StackPanel Orientation="Vertical" >
+                                <StackPanel Orientation="Horizontal" Margin="170 0 0 0">
+
+                                    <Button fa5:Awesome.Content="Solid_PencilAlt"  Width="50" Height="50" Foreground="Green" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, 
+                                        Path=DataContext.cmdEdit}" CommandParameter="{Binding}"/>
+                                    <Button fa5:Awesome.Content="Solid_Trash"  Width="50" Height="50" Foreground="IndianRed" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, 
+                                        Path=DataContext.cmdDelete}" CommandParameter="{Binding}"/>
+                                </StackPanel>
+                                <Image Source="\Image\Ambulance.png" Height="150" Width="150" Margin="0 -30 0 0"/>
+                                <VirtualizingStackPanel HorizontalAlignment="Left" Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Ambulance ID - " FontSize="20" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AmbulanceID}" FontSize="20" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Driver Name - " FontSize="20" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding DriverName}" FontSize="20" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Active Status - " FontSize="20" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding ActiveData}" FontSize="20" HorizontalAlignment="Center" Foreground="{Binding SliceColor}"/>
+                                </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Ambulance Number - " FontSize="20" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding AmbulanceNumber}" FontSize="20" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                </VirtualizingStackPanel>
+                                <!--<TextBlock Text="{Binding AmbulanceID}" FontSize="20" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding DriverName}" FontSize="20" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding ActiveStatus}" FontSize="20" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding AmbulanceNumber}" FontSize="20" HorizontalAlignment="Center"/>-->
+
+                            </StackPanel>
+
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+    </Grid>
+</UserControl>
