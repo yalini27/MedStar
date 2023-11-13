@@ -1,0 +1,36 @@
+﻿<Window x:Class="MedStarHospital.View.AddPaymentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedStarHospital.View"
+        mc:Ignorable="d"
+        Title="AddPaymentView" Background="Transparent" Height="500" Width="300" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Background="SkyBlue" CornerRadius="10" >
+        <Border CornerRadius="10">
+            <Border Height="450" Width="280" Background="DarkBlue" CornerRadius="10">
+                <StackPanel Orientation="Vertical" Margin="20 20 0 0">
+                    <!--<Button Height="30" Width="30" Content="X" FontSize="20" Foreground="Red" Background="Transparent" Margin="220 0 0 0" Command="{Binding cmdExit}"/>-->
+                    <TextBlock  Text="Payment" Height="40" Width="150" Background="Transparent" Foreground="White" FontWeight="Black"  FontSize="30" />
+                    <TextBlock  Text="Payment ID" Height="30" Width="120" Background="Transparent" Foreground="White" FontSize="15" Margin="-150 10 0 0" />
+                    <TextBlock Foreground="White" Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Payment.PaymentID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                    <TextBlock  Text="Patient ID" Height="30" Width="120" Background="Transparent" Foreground="White" FontSize="15" Margin="-150 10 0 0" />
+                    <TextBlock Foreground="White" Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Patient.PatientId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                    <!--<TextBlock  Text="Member ID" Height="30" Width="120" Background="Transparent" Foreground="White" TextAlignment="Center" FontSize="15" Margin="-150 10 0 0" />
+                    <TextBox Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Borrow.Member.Memberid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>-->
+                    <TextBlock  Text="Amount" Height="30" Width="120" Background="Transparent" Foreground="White" FontSize="15" Margin="-150 10 0 0"/>
+                    <TextBlock Foreground="White" Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Patient.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                    <!--<TextBlock  Text="Fine Amount" Height="30" Width="120" Background="Transparent" Foreground="White" TextAlignment="Center" FontSize="15" Margin="-150 10 0 0"/>
+                    <TextBox Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Payment.FineAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>-->
+                    <TextBlock  Text="Pay" Height="30" Width="120" Background="Transparent" Foreground="White"  FontSize="15" Margin="-150 10 0 0" />
+                    <TextBox Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Payment.Paid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Button Style="{DynamicResource ButtonStyle1}" Content="Calculate" Height="40" Width="100" Foreground="#66023C" Background="SkyBlue" Margin="0 10 0 0" Command="{Binding cmdcalculate}"/>
+                    <TextBlock  Text="Balance" Height="30" Width="120" Background="Transparent" Foreground="White" FontSize="15" Margin="-150 10 0 0" />
+                    <TextBlock Foreground="White"  Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Payment.Balance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                    <Button Style="{DynamicResource ButtonStyle1}" Content="Pay" Command="{Binding cmdAdd}" Height="40" Width="100" Margin="0 30 0 0" Foreground="#66023C" Background="SkyBlue"/>
+                </StackPanel>
+            </Border>
+        </Border>
+
+    </Border>
+</Window>
