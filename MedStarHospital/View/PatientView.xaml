@@ -1,0 +1,279 @@
+﻿<UserControl x:Class="MedStarHospital.View.PatientView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedStarHospital.View"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        mc:Ignorable="d"
+         d:DesignHeight="{Binding Height, Source={x:Static SystemParameters.WorkArea}}" 
+             d:DesignWidth="{Binding Width, Source={x:Static SystemParameters.WorkArea}}">
+    <Grid Background="CadetBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Background="CadetBlue" Margin="00 10 00 00">
+            <!--<Border Background="WhiteSmoke" Margin="10" CornerRadius="20">-->
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <Image Height="150" Width="150" Source="\Image\Patient.png" Margin="30 0 0 0"/>
+                        <TextBlock Text="Booking Management" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="400 00 00 00">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20 00 00 00">
+                            <RadioButton FontSize="15" FontFamily="times new roman" Content="View  doctor Consult details" IsChecked="{Binding WithDoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <RadioButton FontSize="15" FontFamily="times new roman" Content="View Testing Details" IsChecked="{Binding Withoutdoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="45 -10 00 00">
+                            <Label  Content="Search Option" Height="40" Width="150" FontSize="20" Background="Transparent" FontWeight="Black" FontFamily="times new roman" />
+                            
+
+
+                            <Grid Margin="10 30 00 00">
+                                <StackPanel Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                    <StackPanel Orientation="Vertical">
+                                        <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="230" >
+                                            <ComboBoxItem Content="Patient ID"/>
+                                            <ComboBoxItem Content="Patient Name"/>
+                                            <ComboBoxItem Content="Test Type ID"/>
+                                        </ComboBox>
+                                        <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="230" Margin="00 10 00 00" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Visibility="{Binding WithDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                                    <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="230" >
+                                        <ComboBoxItem Content="Patient ID"/>
+                                        <ComboBoxItem Content="Patient Name"/>
+
+                                        <ComboBoxItem Content="Department ID"/>
+                                        <ComboBoxItem Content="Doctor ID"/>
+                                        <!--<ComboBoxItem Content="Test Type ID"/>-->
+
+                                    </ComboBox>
+                                    <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="230" Margin="00 10 00 00" />
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="50 00 00 00">
+                        <TextBlock Text="Booking Date" FontWeight="Bold"  FontSize="20" FontFamily="times new roman"/>
+                        <DatePicker Height="30" Width="200" SelectedDate="{Binding FindDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Margin="38 10 00 00"/>
+                        <Button Style="{DynamicResource ButtonStyle1}" fa5:Awesome.Content="Solid_Search" Command="{Binding cmdApply}" Width="30" Height="30" FontSize="20" FontWeight="Black" Margin="2 10 00 00"/>
+                    </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="200 10 00 00">
+                            <Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAdd}" FontSize="20" FontWeight="Black" />
+                            <Button Style="{DynamicResource ButtonStyle1}" Content="Reset" Command="{Binding cmdReset}"  FontSize="20" FontWeight="Black"  Margin="10 00 00 00"/>
+
+                        </StackPanel>
+
+                    </StackPanel>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  
+
+                    <StackPanel Margin="-200 70 0 0">
+                       
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        <!--</Border>-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="23*"/>
+                <ColumnDefinition Width="297*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid  Background="LightSkyBlue" RowHeight="40" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Patients}" Visibility="{Binding WithDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" CanUserResizeColumns="False" CanUserResizeRows="False" Grid.ColumnSpan="2">
+                <DataGrid.Columns >
+
+
+                    <DataGridTemplateColumn Header="Patient ID" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PatientId}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Patient Name" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PatientName}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Phone Number" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Phonenumber, StringFormat=+94\{0:(000)\-0000\}}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Booking Date" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Bookingdate, StringFormat={}{0:MM/dd/yyyy}}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridTemplateColumn Header="Department ID" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Department.DepartmentID,TargetNullValue=Null}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Department Name" Width="1*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Department.DepartmentName,TargetNullValue=Null}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridTemplateColumn Header="Doctor ID" Width="1*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Doctor.Doctorid}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Doctor Name" Width="1*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Doctor.Doctorname,TargetNullValue=Null}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Booking Time" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Doctor.Visitingtime,TargetNullValue=Null}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--<DataGridTemplateColumn Header="Payment" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button fa5:Awesome.Content="Solid_MoneyBill" Background="Transparent" Foreground="Green" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.billview}" CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+
+                    <DataGridTemplateColumn Header="Edit" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button fa5:Awesome.Content="Solid_PencilAlt"  Width="40" Foreground="Green" Background="Transparent" 
+                                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.cmdEdit}" CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+            <DataGrid   RowHeight="40" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Patients}" CanUserResizeColumns="False" CanUserResizeRows="False" Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2">
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn Header="Patient ID" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PatientId}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Patient Name" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding PatientName}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Phone Number" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Phonenumber, StringFormat=+94\{0:(000)\-0000\}}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Booking Date" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Bookingdate, StringFormat={}{0:MM/dd/yyyy}}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Testing Type ID" Width="1*" Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TestingType.TestingTypeID}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Testing Type Name" Width="1*" Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TestingType.TestingTypeName}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Result Date" Width="1*" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ResultDate, StringFormat={}{0:MM/dd/yyyy}}" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                    <!--<DataGridTemplateColumn Header="Payment" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button fa5:Awesome.Content="Solid_MoneyBill" Background="Transparent" Foreground="Green" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Testingbillview}" CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+
+
+                    <DataGridTemplateColumn Header="Edit" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button fa5:Awesome.Content="Solid_PencilAlt"  Width="40" Foreground="Green" Background="Transparent" 
+                                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.cmdEdit}" CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

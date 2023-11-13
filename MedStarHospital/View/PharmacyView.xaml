@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="MedStarHospital.View.PharmacyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MedStarHospital.View"         
+            xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             mc:Ignorable="d" 
+             d:DesignHeight="{Binding Height, Source={x:Static SystemParameters.WorkArea}}" 
+             d:DesignWidth="{Binding Width, Source={x:Static SystemParameters.WorkArea}}">
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="220"/>
+        <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Border Background="CadetBlue" Margin="00 10 00 00">
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            
+            <StackPanel Orientation="Horizontal" Margin="50 10 0 0">
+               
+                <Label Content="Pharmacy Management" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
+
+                <Label  Content="Search Option" FontSize="35"  Margin="550 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                <StackPanel Orientation="Vertical" >
+                    <ComboBox Text="{Binding Field,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
+                        <ComboBoxItem Content="Medicine ID" IsSelected="True"/>
+                        <ComboBoxItem Content="Medicine Name"/>
+                            <ComboBoxItem Content="Brand Name"/>
+                        
+                    </ComboBox>
+
+                    <TextBox  Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman" Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        
+                        <Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAdd}" Width="100" Height="40" FontSize="20" FontWeight="Black" Margin="50 5 0 0" />
+                        <Button Style="{DynamicResource ButtonStyle1}" Content="Reset" Command="{Binding cmdReset}" Width="100" Height="40" FontSize="20" FontWeight="Black"  Margin="10 5 0 0" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Border>
+
+        <DataGrid Grid.Row="1"  ItemsSource="{Binding PharmacyList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+        <DataGrid.Columns>
+            <DataGridTemplateColumn Header="Medicine ID" Width="1*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                            <TextBlock Text="{Binding MedicineID}" Height="30"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+            <DataGridTemplateColumn Header="Medicine Name" Width="1*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                            <TextBlock Text="{Binding MedicineName}" Height="30"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Brand Name" Width="1*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                            <TextBlock Text="{Binding Categary}"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Quantity" Width="1*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                            <TextBlock Text="{Binding Quantity}"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+
+                <DataGridTemplateColumn Header="Unit Price" Width="1*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                            <TextBlock Text="{Binding UnitPrice}" Height="30"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+            <DataGridTemplateColumn Header="Edit" Width="50">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Button fa5:Awesome.Content="Solid_PencilAlt" Foreground="Green" Background="Transparent" 
+                                    Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.cmdEdit}" CommandParameter="{Binding}"/>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+
+    </DataGrid>
+    </Grid>
+</UserControl>
