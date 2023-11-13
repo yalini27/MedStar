@@ -1,0 +1,52 @@
+﻿<Window x:Class="MedStarHospital.View.AddAmbulanceView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedStarHospital.View"
+        mc:Ignorable="d"
+        Title="AddAmbulanceView" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition />
+            <RowDefinition Height="80"/>
+
+        </Grid.RowDefinitions>
+        <Grid Background="SkyBlue">
+            <TextBlock Text="Ambulance Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
+        </Grid>
+
+        <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
+            <TextBlock Text="Ambulance ID" Height="40" Width="250" FontSize="25" Margin="50 40 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Driver Name" Height="40" Width="250" FontSize="25" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Active Status" Height="40" Width="250" FontSize="25" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+            
+            <TextBlock Text="Ambulance Number" Height="40" Width="250" FontSize="25" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+
+
+        </VirtualizingStackPanel>
+        <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
+            <TextBox Height="40" Width="200" Margin="70 40 0 0" Text="{Binding Ambulance.AmbulanceID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+            <TextBox Height="40" Width="200" Margin="70 20 0 0" Text="{Binding Ambulance.DriverName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Doctor.DoctorNameError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
+            <StackPanel Height="40" Width="200" Margin="70 10 0 0">
+                <!--<StackPanel Orientation="Horizontal">-->
+                <RadioButton  Content="Active" CommandParameter="Active" Foreground="Green" IsChecked="{Binding Ambulance.Active, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!--<TextBlock Text="Active" Foreground="Green"/>-->
+                <!--</StackPanel>-->
+                <!--<StackPanel Orientation="Horizontal">-->
+                <RadioButton Content="Inactive" CommandParameter="Inactive" Foreground="Red"  IsChecked="{Binding Ambulance.Inactive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!--<TextBlock Text="Inactive" Foreground="IndianRed"/>
+                </StackPanel>-->
+                <!--<CheckBox Height="20" Width="20" Margin="-100 00 0 0" />-->
+            </StackPanel>
+            <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Doctor.TimeError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
+            <TextBox Height="40" Width="200" Margin="70 -10 0 0" Text="{Binding Ambulance.AmbulanceNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </VirtualizingStackPanel>
+        <VirtualizingStackPanel Orientation="Horizontal" Grid.Row="2" Background="SkyBlue">
+            <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btnBack}" Command="{Binding cmdExit}"  Margin="100 0 100 0"  />
+            <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btn}" Command="{Binding cmdOption}" Margin="200 0 100 0" />
+        </VirtualizingStackPanel>
+    </Grid>
+</Window>
