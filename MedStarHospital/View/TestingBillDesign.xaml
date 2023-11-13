@@ -1,0 +1,97 @@
+﻿<Window x:Class="MedStarHospital.View.TestingBillDesign"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedStarHospital.View"
+        mc:Ignorable="d"
+        Title="TestingBillDesign" Height="550" Width="380"  WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Button Height="30" Width="30" Background="Transparent" Content="X" FontSize="20" Foreground="Red"  Margin="320 -450 0 0" Command="{Binding cmdExit}"/>
+        <StackPanel Orientation="Vertical" >
+
+
+            <StackPanel Orientation="Vertical" Margin="00,30,00,00" HorizontalAlignment="Center">
+                <TextBlock  Text="         JY Hospital" FontFamily="times new roman" FontSize="15" FontWeight="Bold"/>
+                <TextBlock  Text="Kachcheri Eastern Road" FontFamily="times new roman" FontSize="15" Margin="0 00 00 00" FontWeight="Bold"/>
+                <TextBlock  Text="Ariyalai." FontFamily="times new roman" FontSize="15" Margin="32 00 00 00" FontWeight="Bold"/>
+                <TextBlock  Text="Tel : 0210236542" FontFamily="times new roman" FontSize="15" Margin="03 00 00 00" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock  Text="Date                  :" FontFamily="times new roman" FontSize="15" Margin="20,50,00,00" Width="120"/>
+                <TextBlock  Text="{Binding Patient.Bookingdate, StringFormat={}{0:dd.MM.yyyy   hh:mm:ss tt}}" FontFamily="times new roman" FontSize="15" Margin="60,50,00,00"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="50" Width="380">
+                <TextBlock  Text="Patient Name    :" FontFamily="times new roman" FontSize="15" Margin="20,00,00,00" Height="40" Width="120"/>
+                <TextBlock  Text="{Binding Patient.PatientName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="200" FontFamily="times new roman" FontSize="15" Margin="60,00,00,00"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Payment Details" FontFamily="times new roman" FontSize="15" Margin="20,30,00,00" Width="100"/>
+                
+
+                <TextBlock Text="Payment" FontFamily="times new roman" FontSize="15" Margin="150,30,00,00" Width="100"/>
+            </StackPanel>
+
+            <StackPanel Margin="15 10 00 00" Background="Transparent">
+
+                <Grid>
+           
+                        <ListView Visibility="{Binding WithDoctorVisibility,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{Binding PatientBillList}" Height="100" Background="Transparent" BorderBrush="Transparent" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+
+                                    <Grid Height="50" Margin="6">
+
+
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10 20 00 00">
+
+                                            <TextBlock Text="Testing Details" FontFamily="times new roman" FontSize="15" Margin="10,00,00,00" Width="270"/>
+
+                                            <TextBlock Text="{Binding  Patient.TestingType.TestingTypeName , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="times new roman" FontSize="15"  Width="100"/>
+                                            <TextBlock Text="{Binding Patient.TestingType.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="times new roman" FontSize="15" Margin="10,00,00,00" Width="270"/>
+                                        </StackPanel>
+
+
+
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                      
+
+                    <ListView  Visibility="{Binding WithoutDoctorVisibility,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{Binding TestingTypeList}" Height="150" Background="Transparent" BorderBrush="Transparent" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                               
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding  TestingTypeName , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="times new roman" FontSize="15"  Width="100"/>
+                                        <TextBlock Text="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontFamily="times new roman" FontSize="15" Margin="150,00,00,00" Width="80"/>
+                                       
+                                    </StackPanel>
+
+                             
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackPanel>
+  
+
+        </StackPanel>
+
+        <Label Content="     -------------------------------------------------------------------" Margin="00 380 00 00"/>
+        <StackPanel Orientation="Horizontal" Margin="20 300 0 0">
+
+            <TextBlock Text="Total" Height="30" Width="100" FontFamily="40" FontSize="15"/>
+            <TextBlock Text="{Binding Patient.Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="100" FontFamily="40" Margin="144 0 0 0" FontSize="15"/>
+
+        </StackPanel>
+        <Label Content="     -------------------------------------------------------------------" Margin="00 430 00 00"/>
+
+
+        <TextBlock Text="Thank you..! Come Again.." FontFamily="times new roman" FontSize="15" VerticalAlignment="Top"  HorizontalAlignment="Center" Margin="0,482,0,0"/>
+
+
+    </Grid>
+</Window>
