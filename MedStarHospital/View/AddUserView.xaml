@@ -1,0 +1,60 @@
+﻿<Window x:Class="MedStarHospital.View.AddUserView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MedStarHospital.View"
+        mc:Ignorable="d"
+        Title="AddUserView" Height="450" Width="800"  WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition />
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="DodgerBlue">
+            <TextBlock Text="User Details" Foreground="White" FontSize="50" FontFamily="times new roman" TextAlignment="Center" FontWeight="Black"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical" >
+                <TextBlock Height="40" Width="200" Text="User ID" FontFamily="times new roman" FontSize="20" Margin="-300 30 0 0"/>
+                <TextBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding User.UserID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Height="40" Width="200" Text="User Name" FontFamily="times new roman" FontSize="20" Margin="-300 80 0 0"/>
+                <TextBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding User.UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </StackPanel>
+
+
+            <StackPanel Orientation="Vertical" Margin="0 0 0 0">
+                <TextBlock Height="40" Width="200" Text="Password" FontFamily="times new roman" FontSize="20" Margin="-300 130 0 0"/>
+                <TextBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding User.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0 0 0 0">
+                <TextBlock Height="40" Width="200" Text="Role" FontFamily="times new roman" FontSize="20" Margin="-300 180 0 0"/>
+                <ComboBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding User.Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem>Admin</ComboBoxItem>
+                    <ComboBoxItem>Receptionist</ComboBoxItem>
+                    <ComboBoxItem>Doctor</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0 0 0 0">
+                <TextBlock Height="40" Width="200" Text="Status" FontFamily="times new roman" FontSize="20" Margin="-300 230 0 0"/>
+                <ComboBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding User.Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ComboBoxItem>Active</ComboBoxItem>
+                    <ComboBoxItem>Deactive</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Background="DodgerBlue">
+            <Button Height="50" Width="120" Style="{DynamicResource ButtonStyle1}" Margin="-400 0 0 0" Content="{Binding btn}" Command="{Binding cmdOption}"/>
+            <Button Height="50" Width="120" Style="{DynamicResource ButtonStyle1}" Margin="250 0 0 0" Content="{Binding btnback}" Command="{Binding cmdback}"/>
+        </Grid>
+    </Grid>
+</Window>
