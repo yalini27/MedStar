@@ -94,11 +94,11 @@ namespace MedStarHospital.ViewModel
                     Control.DataContext = pa;
                     break;
 
-                case "Report":
-                    VMReport re = new VMReport(User);
-                    Control.Content = new ReportView();
-                    Control.DataContext = re;
-                    break;
+                //case "Report":
+                //    VMReport re = new VMReport(User);
+                //    Control.Content = new ReportView();
+                //    Control.DataContext = re;
+                //    break;
 
                 case "Back":
                     if (MessageBox.Show("Do you want to Log out?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)

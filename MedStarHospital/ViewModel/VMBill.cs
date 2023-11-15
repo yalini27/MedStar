@@ -44,26 +44,26 @@ namespace MedStarHospital.ViewModel
         {
             fnView();
         }
-        public ICommand cmdAddBill { get { return new RelayCommand(fnAdd); } }
+        //public ICommand cmdAddBill { get { return new RelayCommand(fnAdd); } }
 
 
         public ICommand cmdReset { get { return new RelayCommand(fnReset); } }
-        public ICommand cmdEdit { get { return new RelayCommand(fnEdit); } }
+        //public ICommand cmdEdit { get { return new RelayCommand(fnEdit); } }
 
-        void fnAdd(object param)
-        {
-            AddBillView bv = new AddBillView();
-            bv.DataContext = new VMAddBill();
-            bv.ShowDialog();
-        }
+        //void fnAdd(object param)
+        //{
+        //    AddBillView bv = new AddBillView();
+        //    bv.DataContext = new VMAddBill();
+        //    bv.ShowDialog();
+        //}
 
-        void fnEdit(object param)
-        {
-            BillModel bm = (BillModel)param;
-            AddBillView addBill = new AddBillView();
-            addBill.DataContext = new VMAddBill(bm);
-            addBill.ShowDialog();
-        }
+        //void fnEdit(object param)
+        //{
+        //    BillModel bm = (BillModel)param;
+        //    AddBillView addBill = new AddBillView();
+        //    addBill.DataContext = new VMAddBill(bm);
+        //    addBill.ShowDialog();
+        //}
 
         void AutoApply()
         {

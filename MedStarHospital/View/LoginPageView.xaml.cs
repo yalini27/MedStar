@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedStarHospital.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace MedStarHospital.View
         public LoginPageView()
         {
             InitializeComponent();
+            this.DataContext = new VMLogin();
+            VMLogin.exit = new Action(this.Close);
         }
     }
 }

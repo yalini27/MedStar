@@ -1,5 +1,5 @@
-﻿using HospitalManagement.Model;
-using HospitalManagement.View;
+﻿using MedStarHospital.Model;
+using MedStarHospital.View;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using static System.Reflection.Metadata.BlobBuilder;
 
-namespace HospitalManagement.ViewModel
+namespace MedStarHospital.ViewModel
 {
     public class VMDepartment:ViewModelBase
     {
