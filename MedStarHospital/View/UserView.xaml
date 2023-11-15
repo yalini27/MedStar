@@ -18,14 +18,14 @@
             <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <!--<Label fa5:Awesome.Content="Regular_User" Height="80" Width="80" FontSize="50" Background="Transparent" Margin="50 0 0 0"/>-->
                 <StackPanel Orientation="Horizontal" Margin="50 10 0 0">
-                    <Image Source="\image\Staff.png" Height="150" Width="150"/>
+                    <!--<Image Source="\image\Staff.png" Height="150" Width="150"/>-->
                     <Label Content="User Management" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
                 </StackPanel>
                 <!--<Image Source="\image\Staff.png" Height="100" Width="100" Margin="50 0 0 0"/>-->
                 
                 <StackPanel Orientation="Horizontal" >
 
-                    <Label  Content="Search Option" FontSize="35"  Margin="550 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                    <Label  Content="Search Option" FontSize="35"  Margin="250 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
                     <StackPanel Orientation="Vertical" >
                         <ComboBox Text="{Binding Field,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                             <ComboBoxItem Content="User ID" IsSelected="True"/>
