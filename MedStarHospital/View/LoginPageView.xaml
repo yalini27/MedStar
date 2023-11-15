@@ -10,14 +10,14 @@
     <Grid Background="#115667" >
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Medstar Hospital" FontSize="100" FontFamily="Algerian" Foreground="White" Margin="500 20 00 00" />
-                <TextBlock Text="Your best life is our best" FontSize="48" TextAlignment="Center" Foreground="White" Margin="650 0 0 0" FontWeight="SemiBold" FontFamily="times new roman" />
+                <TextBlock Text="Medstar Hospital" FontSize="100" FontFamily="Algerian" Foreground="White" Margin="300 20 00 00" />
+                <TextBlock Text="Your best life is our best" FontSize="45" TextAlignment="Center" Foreground="White" Margin="500 0 0 0" FontWeight="SemiBold" FontFamily="times new roman" />
             </StackPanel>
             <Button Height="40" Width="100" Background="DodgerBlue" Content="About" FontSize="30" FontFamily="times new roman" Command="{Binding cmdAbout}" Foreground="White" VerticalAlignment="Top"  Margin="300 30 00 00"/>
             <Button  fa5:Awesome.Content="Solid_WindowClose"   FontSize="30" Command="{Binding cmdExit}"  Foreground="Red" VerticalAlignment="Top" Margin="20 30 00 00" BorderBrush="Transparent" />
         </StackPanel>
 
-        <Border CornerRadius="50" Background="White" Height="500" Width="1000">
+        <Border CornerRadius="50" Background="White" Height="470" Width="1000">
             <StackPanel Orientation="Horizontal">
                 <Image Source="\Image\Hospital1.jpg" Width="600" />
                 <Border BorderBrush="#115667" BorderThickness="2" CornerRadius="20" Margin="00 45 00 45" Width="386">
