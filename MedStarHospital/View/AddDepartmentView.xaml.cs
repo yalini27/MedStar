@@ -13,18 +13,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MedStarHospital.ViewModel;
 
-
 namespace MedStarHospital.View
 {
-    public partial class HomeView : Window
+    /// <summary>
+    /// Interaction logic for AddDepartmentView.xaml
+    /// </summary>
+    public partial class AddDepartmentView : Window
     {
-        public HomeView()
+        public AddDepartmentView()
         {
             InitializeComponent();
-            //this.DataContext = new VMHome();
-            VMHome.exit = new Action(this.Close);
+            this.DataContext = new VMAddDepartment();
+            VMAddDepartment.exit = new Action(this.Close);
         }
-    } 
+    }
 }
-
-    
