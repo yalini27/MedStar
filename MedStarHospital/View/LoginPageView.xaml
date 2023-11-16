@@ -19,7 +19,7 @@
 
         <Border CornerRadius="50" Background="White" Height="470" Width="1000">
             <StackPanel Orientation="Horizontal">
-                <Image Source="\Image\Hospital1.jpg" Width="600" />
+                <Image Source="\Image\icon.jpg" Width="600" />
                 <Border BorderBrush="#115667" BorderThickness="2" CornerRadius="20" Margin="00 45 00 45" Width="386">
                     <StackPanel Orientation="Vertical" >
                         <Label fa5:Awesome.Content="Solid_User" FontSize="120" Foreground="#115667" HorizontalAlignment="Center" />

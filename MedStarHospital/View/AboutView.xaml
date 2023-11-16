@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedStarHospital.View"
         mc:Ignorable="d"
-        Title="AboutView" Height="1200" Width="1600" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="AboutView" Height="1000" Width="1600" WindowState="Maximized" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <!--<Grid.Background>
             <ImageBrush ImageSource="\Image\Body.jpg" Opacity="0.3"/>
@@ -30,8 +30,8 @@
             <TextBlock Text="=>  Y123@gmail.com" FontSize="25" Height="40" Width="400" Margin="600 -260 0 0"/>
             <TextBlock Text="=>  0210236542" FontSize="25" Height="40" Width="400" Margin="600 -60 0 0"/>
             </VirtualizingStackPanel>
-            <Button Style="{DynamicResource ButtonStyle1}" Content="Back" Command="{Binding cmdBack}" Margin="1000 300 0 0"/>
-            <Image Source="\Image\Doctor2.png" Height="1000" Width="400" Margin="-1200 -600 0 0"/>
+            <Button Style="{DynamicResource ButtonStyle1}" Content="Back" Command="{Binding cmdBack}" Margin="1000 100 0 0"/>
+            <Image Source="\Image\Doctor2.png" Height="600" Width="400" Margin="-1200 -500 0 0"/>
             <!--<Image Source="\Image\Body.png" Height="400" Width="600" Margin="700 -500 0 0"/>-->
         </StackPanel>
         </Border>
