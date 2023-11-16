@@ -13,7 +13,7 @@
                 <TextBlock Text="Medstar Hospital" FontSize="100" FontFamily="Algerian" Foreground="White" Margin="300 20 00 00" />
                 <TextBlock Text="Your best life is our best" FontSize="45" TextAlignment="Center" Foreground="White" Margin="500 0 0 0" FontWeight="SemiBold" FontFamily="times new roman" />
             </StackPanel>
-            <Button Height="40" Width="100" Background="DodgerBlue" Content="About" FontSize="30" FontFamily="times new roman" Command="{Binding cmdAbout}" Foreground="White" VerticalAlignment="Top"  Margin="300 30 00 00"/>
+            <Button Height="40" Width="100" Background="DodgerBlue" Content="About" FontSize="30" FontFamily="times new roman" Command="{Binding cmdAbout}" Foreground="White" VerticalAlignment="Top"  Margin="100 30 00 00"/>
             <Button  fa5:Awesome.Content="Solid_WindowClose"   FontSize="30" Command="{Binding cmdExit}"  Foreground="Red" VerticalAlignment="Top" Margin="20 30 00 00" BorderBrush="Transparent" />
         </StackPanel>
 
