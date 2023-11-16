@@ -14,7 +14,7 @@
      
 
             <StackPanel Orientation="Vertical" Margin="00,30,00,00" HorizontalAlignment="Center">
-                <TextBlock  Text="         JY Hospital" FontFamily="times new roman" FontSize="15" FontWeight="Bold"/>
+                <TextBlock  Text="         MedStar Hospital" FontFamily="times new roman" FontSize="15" FontWeight="Bold"/>
                 <TextBlock  Text="Kachcheri Eastern Road" FontFamily="times new roman" FontSize="15" Margin="0 00 00 00" FontWeight="Bold"/>
                 <TextBlock  Text="Ariyalai." FontFamily="times new roman" FontSize="15" Margin="32 00 00 00" FontWeight="Bold"/>
                 <TextBlock  Text="Tel : 0210236542" FontFamily="times new roman" FontSize="15" Margin="03 00 00 00" FontWeight="Bold"/>

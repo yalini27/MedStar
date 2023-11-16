@@ -35,6 +35,7 @@
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
             <TextBox Height="30" Width="200" Margin="50 10 0 0" Text="{Binding Patient.PatientId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
             <StackPanel>
+                
                 <TextBox Height="30" Width="200" Margin="50 10 0 0" Text="{Binding Patient.PatientName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Patient.PatientNameError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
             </StackPanel>
@@ -106,7 +107,7 @@
         <VirtualizingStackPanel  Orientation="Horizontal" Grid.Row="3" Background="SkyBlue">
             <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btnBack}" Command="{Binding cmdExit}"  Margin="100 0 100 0"  />
 
-            <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btn}" Command="{Binding cmdOption}" Margin="100 0 100 0"  />
+            <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btn}" Command="{Binding cmdOption}" Margin="100 0 100 0"/>
         </VirtualizingStackPanel>
 
     </Grid>

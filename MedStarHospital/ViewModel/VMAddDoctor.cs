@@ -121,7 +121,6 @@ namespace MedStarHospital.ViewModel
                     catch(Exception ex)
                     {
                         Sql_Connection.close_connection();
-                        MessageBox.Show(ex.Message);
        
                         MessageBox.Show("This Data invalid!", "Validation", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
