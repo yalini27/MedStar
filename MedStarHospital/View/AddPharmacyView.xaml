@@ -57,7 +57,7 @@
         <Grid Grid.Row="2" Background="DodgerBlue">
             <Button Height="50" Width="120" Style="{DynamicResource ButtonStyle1}" Margin="-400 0 0 0" Content="{Binding btn}" Command="{Binding cmdOption}"/>
             <Button Height="50" Width="120" Style="{DynamicResource ButtonStyle1}" Margin="250 0 0 0" Content="{Binding btnback}" Command="{Binding cmdback}"/>
-            <Button Height="50" Width="120" Style="{DynamicResource ButtonStyle1}" Margin="250 0 0 0" Content="{Binding btnback}" Command="{Binding cmdback}"/>
+           
         </Grid>
     </Grid>
 </Window>
