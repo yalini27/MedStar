@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace MedStarHospital.ViewModel
 {
@@ -29,8 +30,51 @@ namespace MedStarHospital.ViewModel
             set { _btnBack = value; OnPropertyChanged(); }
         }
 
+        private ObservableCollection<DriverModel> _driverCollection = new ObservableCollection<DriverModel>();
+
+        public ObservableCollection<DriverModel> DriverCollection
+        {
+            get { return _driverCollection = new ObservableCollection<DriverModel>(); }
+            set { _driverCollection = value; OnPropertyChanged(); }
+        }
+
+        private DriverModel _selecteddriver = new DriverModel();
+
+        public DriverModel SelectedDriver
+        {
+            get { return _selecteddriver = new DriverModel(); }
+            set { _selecteddriver = value; OnPropertyChanged(); }
+        }
+
+
+        void fnGetDriver()
+        {
+            Sql_Connection.sql_connection();
+            DriverCollection = new ObservableCollection<DriverModel>();
+            string Query = $"Select * from tblDriver";
+            SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                DriverCollection.Add(new DriverModel
+                {
+                    DriverID = (string)reader.GetValue(0),
+                    DriverName = (string)reader.GetValue(1),
+                    PhoneNumber = (long)reader.GetValue(2),
+                    Password = (string)reader.GetValue(3),
+                    CurrentLocation = (string)reader.GetValue(4),
+                    ServiceLocation = (string)reader.GetValue(5),
+                    Status = (string)reader.GetValue(6)
+
+                });
+            }
+            Sql_Connection.close_connection();
+        }
+
         public VMAddAmbulance(AmbulanceModel ambulance = null)
         {
+
+            fnGetDriver();
             if (ambulance == null)
             {
                 ISAmbulance();
@@ -42,7 +86,7 @@ namespace MedStarHospital.ViewModel
                 Ambulance = new AmbulanceModel
                 {
                     AmbulanceID = ambulance.AmbulanceID,
-                    DriverName = ambulance.DriverName,
+                    Driver = ambulance.Driver,
                     AmbulanceNumber = ambulance.AmbulanceNumber,
                     ActiveStatus = ambulance.ActiveStatus
                   
@@ -94,7 +138,7 @@ namespace MedStarHospital.ViewModel
                         {
 
                             Sql_Connection.sql_connection();
-                            string QUERY = $"Insert into tblAmbulance values('" + Ambulance.AmbulanceID + "','" + Ambulance.DriverName + "','"+ Ambulance.ActiveStatus + "','" +Ambulance.AmbulanceNumber + "')";
+                            string QUERY = $"Insert into tblAmbulance values('" + Ambulance.AmbulanceID + "','" + SelectedDriver.DriverID + "','"+ Ambulance.ActiveStatus + "','" +Ambulance.AmbulanceNumber + "')";
                             SqlCommand command = new SqlCommand(QUERY, Sql_Connection.getconnection());
                             SqlDataAdapter adapter = new SqlDataAdapter();
                             adapter.InsertCommand = new SqlCommand(QUERY, Sql_Connection.getconnection());
@@ -127,7 +171,7 @@ namespace MedStarHospital.ViewModel
                         if (validation())
                         {
                             Sql_Connection.sql_connection();
-                            string Query = $"update tblAmbulance set DriverName = '" + Ambulance.DriverName + "',ActiveStatus='" + Ambulance.ActiveStatus + "',AmbulanceNumber='" + Ambulance.AmbulanceNumber + "' where AmbulanceID ='" + Ambulance.AmbulanceID + "'";
+                            string Query = $"update tblAmbulance set DriverID = '" + Ambulance.Driver.DriverID + "',ActiveStatus='" + Ambulance.ActiveStatus + "',AmbulanceNumber='" + Ambulance.AmbulanceNumber + "' where AmbulanceID ='" + Ambulance.AmbulanceID + "'";
                             SqlCommand command1 = new SqlCommand(Query, Sql_Connection.getconnection());
                             SqlDataAdapter adapter1 = new SqlDataAdapter();
                             adapter1.InsertCommand = new SqlCommand(Query, Sql_Connection.getconnection());
@@ -165,10 +209,10 @@ namespace MedStarHospital.ViewModel
         {
             bool result = false;
             bool crtid = Ambulance.AmbulanceID > 0;
-            if (!(Regex.IsMatch(Ambulance.DriverName, @"^[a-zA-Z\s]*$")))
-            {
-                return false;
-            }
+            //if (!(Regex.IsMatch(Ambulance.DriverName, @"^[a-zA-Z\s]*$")))
+            //{
+            //    return false;
+            //}
 
 
             if (crtid)

@@ -17,6 +17,7 @@ namespace MedStarHospital.Model
             set { _userid = value; OnPropertyChanged(); }
         }
 
+
         private string _username;
 
         public string UserName

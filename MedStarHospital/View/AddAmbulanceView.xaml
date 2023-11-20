@@ -21,28 +21,21 @@
             <TextBlock Text="Ambulance ID" Height="40" Width="250" FontSize="25" Margin="50 40 0 0" HorizontalAlignment="Left"/>
             <TextBlock Text="Driver Name" Height="40" Width="250" FontSize="25" Margin="50 20 0 0" HorizontalAlignment="Left"/>
             <TextBlock Text="Active Status" Height="40" Width="250" FontSize="25" Margin="50 20 0 0" HorizontalAlignment="Left"/>
-            
+
             <TextBlock Text="Ambulance Number" Height="40" Width="250" FontSize="25" Margin="50 20 0 0" HorizontalAlignment="Left"/>
-
-
         </VirtualizingStackPanel>
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
             <TextBox Height="40" Width="200" Margin="70 40 0 0" Text="{Binding Ambulance.AmbulanceID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
-            <TextBox Height="40" Width="200" Margin="70 20 0 0" Text="{Binding Ambulance.DriverName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Doctor.DoctorNameError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
+            <ComboBox Height="40" Width="200" Margin="70 20 0 0" ItemsSource="{Binding DriverCollection}" SelectedItem="{Binding SelectedDriver, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="DriverName"/>
+
             <StackPanel Height="40" Width="200" Margin="70 10 0 0">
-                <!--<StackPanel Orientation="Horizontal">-->
                 <RadioButton  Content="Active" CommandParameter="Active" Foreground="Green" IsChecked="{Binding Ambulance.Active, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    <!--<TextBlock Text="Active" Foreground="Green"/>-->
-                <!--</StackPanel>-->
-                <!--<StackPanel Orientation="Horizontal">-->
+
                 <RadioButton Content="Inactive" CommandParameter="Inactive" Foreground="Red"  IsChecked="{Binding Ambulance.Inactive, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    <!--<TextBlock Text="Inactive" Foreground="IndianRed"/>
-                </StackPanel>-->
-                <!--<CheckBox Height="20" Width="20" Margin="-100 00 0 0" />-->
+
             </StackPanel>
-            <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Doctor.TimeError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
-            <TextBox Height="40" Width="200" Margin="70 -10 0 0" Text="{Binding Ambulance.AmbulanceNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <TextBox Height="40" Width="200" Margin="70 30 0 0" Text="{Binding Ambulance.AmbulanceNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         </VirtualizingStackPanel>
         <VirtualizingStackPanel Orientation="Horizontal" Grid.Row="2" Background="SkyBlue">
             <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btnBack}" Command="{Binding cmdExit}"  Margin="100 0 100 0"  />

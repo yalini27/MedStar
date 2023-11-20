@@ -15,7 +15,7 @@ namespace MedStarHospital.ViewModel
 {
     public class VMAmbulance  :ViewModelBase
     {
-        public ICommand cmdEdit { get { return new RelayCommand(fnEdit, fnCanExecuteUser); } }
+        public ICommand cmdEdit { get { return new RelayCommand(fnEdit); } }
 
         public Brush SliceColor { get; set; }
 
@@ -36,25 +36,6 @@ namespace MedStarHospital.ViewModel
             set { _column = value; OnPropertyChanged(); }
         }
 
-        //private string _active;
-
-        //public string ActiveData
-        //{
-        //    get { return _active; }
-        //    set
-        //    {
-        //        _active = value; OnPropertyChanged();
-        //        if (AmbulanceModel.ActiveStatus = true)
-        //        {
-        //            ActiveData = "Active";
-        //        }
-        //        else
-        //        {
-        //            ActiveData = "Inactive";
-        //        }
-        //    }
-        //}
-
 
         public VMAmbulance(UserModel user)
         {
@@ -67,8 +48,8 @@ namespace MedStarHospital.ViewModel
             fnView();
         }
 
-        public ICommand cmdAdd { get { return new RelayCommand(fnAdd, fnCanExecuteUser); } }
-        public ICommand cmdDelete { get { return new RelayCommand(fnDelete, fnCanExecuteUser); } }
+        public ICommand cmdAdd { get { return new RelayCommand(fnAdd); } }
+        public ICommand cmdDelete { get { return new RelayCommand(fnDelete); } }
         //public ICommand cmdApply { get { return new RelayCommand(fnApply); } }
         public ICommand cmdReset { get { return new RelayCommand(fnReset); } }
 
@@ -134,9 +115,13 @@ namespace MedStarHospital.ViewModel
                 AmbulanceList.Add(new AmbulanceModel
                 {
                     AmbulanceID = (int)reader.GetValue(0),
-                    DriverName = (reader.GetValue(1).ToString()),
                     ActiveStatus = (bool)reader.GetValue(2),
                     AmbulanceNumber = reader.GetValue(3).ToString(),
+                    Driver = new DriverModel
+                    {
+                        DriverID = (string)reader.GetValue(2),
+                        DriverName = Sql_Connection.SpaficDataISINTable("tblDriver", "DriverName", "DriverID", reader.GetValue(2).ToString()),
+                    }
                 });
             }
 
@@ -197,10 +182,15 @@ namespace MedStarHospital.ViewModel
                 AmbulanceList.Add(new AmbulanceModel
                 {
                     AmbulanceID = (int)reader.GetValue(0),
-                    DriverName = (reader.GetValue(1).ToString()),
                     ActiveStatus = (bool)reader.GetValue(2),
                     AmbulanceNumber = reader.GetValue(3).ToString(),
-                
+
+                    Driver = new DriverModel
+                    {
+                        DriverID = (string)reader.GetValue(2),
+                        DriverName = Sql_Connection.SpaficDataISINTable("tblDriver", "DriverName", "DriverID", reader.GetValue(1).ToString()),
+                    }
+
                 });
             }
 

@@ -16,13 +16,12 @@
         <Border Background="CadetBlue" Margin="00 10 00 00">
             <Border Background="CadetBlue">
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
-                        <Image Height="150" Width="150" Source="\Image\Ambulance.png" Margin="30 0 0 0"/>
+                    <StackPanel Orientation="Horizontal" Margin="0 -100 0 0">
                         <TextBlock Text="Ambulance Management"   FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <Label  Content="Search Option" FontSize="35"  Margin="100 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                        <Label  Content="Search Option" FontSize="35"  Margin="200 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
                         <StackPanel Orientation="Vertical">
                             <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                                 <ComboBoxItem Content="Ambulance ID"/>
@@ -35,7 +34,7 @@
                             <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman"/>
 
 
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" Margin="-950 0 0 0">
                                 <Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAdd}" FontSize="20" FontWeight="Black"  Margin="50 5 0 0" />
                                 <Button Style="{DynamicResource ButtonStyle1}" Content="Reset" Command="{Binding cmdReset}"  FontSize="20" FontWeight="Black"  Margin="10 5 0 0"/>
                             </StackPanel>

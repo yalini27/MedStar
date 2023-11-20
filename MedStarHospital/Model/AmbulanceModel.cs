@@ -18,12 +18,12 @@ namespace MedStarHospital.Model
 			set { _ambulanceid = value; OnPropertyChanged(); }
 		}
 
-		private string _drivername;
+		private DriverModel _driver;
 
-		public string DriverName
+		public DriverModel Driver
 		{
-			get { return _drivername; }
-			set { _drivername = value;OnPropertyChanged(); }
+			get { return _driver; }
+			set { _driver = value;OnPropertyChanged(); }
 		}
 
 		private bool _activestatus;

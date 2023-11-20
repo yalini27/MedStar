@@ -15,14 +15,11 @@
         </Grid.RowDefinitions>
         <Border Background="CadetBlue" Margin="00 10 00 00">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
-                <!--<TextBlock Text="Bill =>" FontFamily="Chiller" FontSize="60" Height="70" Width="300" TextAlignment="Center" Foreground="DarkBlue" Margin="50 0 0 0"/>-->
-                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
-                    <!--<Image Height="150" Width="150" Source="\Image\Bill.png" Margin="30 0 0 0"/>-->
-                    <TextBlock Text="Bill Section"  FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
+                <StackPanel Orientation="Horizontal" Margin="0 -100 0 0">
+                    <TextBlock Text="Payment Section"  FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
                 </StackPanel>
-                <!--<Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAddBill}" FontSize="20" FontWeight="Black" Margin="150 50 0 0" />-->
                 <StackPanel Orientation="Horizontal">
-                    <Label  Content="Search Option"  FontSize="35"  Margin="550 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                    <Label  Content="Search Option"  FontSize="35"  Margin="450 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
                     <StackPanel Orientation="Vertical">
                         <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                             <ComboBoxItem Content="Payment ID"/>
@@ -31,7 +28,7 @@
 
                         </ComboBox>
                         <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman"/>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="-1100 0 0 0">
                             <!--<Button Style="{DynamicResource ButtonStyle1}" Content="Apply" Command="{Binding cmdApply}"  FontSize="20" FontWeight="Black"  Margin="300 -50 0 0" />-->
                             <Button Style="{DynamicResource ButtonStyle1}" Content="Reset" Command="{Binding cmdReset}" FontSize="20" FontWeight="Black"  Margin="130 20 0 0"/>
                         </StackPanel>

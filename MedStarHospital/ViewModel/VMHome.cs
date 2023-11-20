@@ -94,11 +94,11 @@ namespace MedStarHospital.ViewModel
                     Control.DataContext = pa;
                     break;
 
-                //case "Report":
-                //    VMReport re = new VMReport(User);
-                //    Control.Content = new ReportView();
-                //    Control.DataContext = re;
-                //    break;
+                case "Driver":
+                    VMDriver re = new VMDriver(User);
+                    Control.Content = new DriverView();
+                    Control.DataContext = re;
+                    break;
 
                 case "Back":
                     if (MessageBox.Show("Do you want to Log out?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -137,6 +137,10 @@ namespace MedStarHospital.ViewModel
             if (User.Role.ToLower() == "doctor" && (o.ToString() == "Users"  || o.ToString() == "Booking" || o.ToString() == "Payment"))
                 return false;  
             if (User.Role.ToLower() == "receptionist" && (o.ToString() == "Users"))
+                return false;
+            if(User.Role.ToLower() =="Pharmacist" &&  (o.ToString() == "Users" || o.ToString() == "Department" || o.ToString() == "Doctor" || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Testing" || o.ToString() == "Ambulance" || o.ToString() == "Driver"))
+                return true;
+            if(User.Role.ToLower() =="Driver" && (o.ToString() == "Users" || o.ToString() == "Department" || o.ToString() == "Doctor" || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Testing" || o.ToString() == "Ambulance" || o.ToString() == "Pharmacy"))
                 return false;
             return true;
 
