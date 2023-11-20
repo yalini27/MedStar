@@ -21,8 +21,11 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" >
-
-                    <Label  Content="Search Option" FontSize="35"  Margin="250 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                    <StackPanel Orientation="Vertical">
+                    <Label  Content="Search Type" FontSize="25"  Margin="250 25 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                    <Label  Content="Search Value" FontSize="25"  Margin="250 15 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                        
+                    </StackPanel>
                     <StackPanel Orientation="Vertical" >
                         <ComboBox Text="{Binding Field,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                             <ComboBoxItem Content="User ID" IsSelected="True"/>
@@ -32,7 +35,7 @@
                         </ComboBox>
 
                         <TextBox  Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman" Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <StackPanel Orientation="Horizontal" Margin="-900 10 0 0">
+                        <StackPanel Orientation="Horizontal" Margin="-800 10 0 0">
                             <!--<Button Style="{DynamicResource ButtonStyle1}" Content="Apply" Command="{Binding cmdApply}" Width="100" Height="40" FontSize="20" FontWeight="Black" Background="#1e3d59" Margin="300 -50 0 0" Foreground="#f5f0e1"/>-->
                             <Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAdd}" Width="100" Height="40" FontSize="20" FontWeight="Black" Margin="50 5 0 0" />
                             <Button Style="{DynamicResource ButtonStyle1}" Content="Reset" Command="{Binding cmdReset}" Width="100" Height="40" FontSize="20" FontWeight="Black"  Margin="10 5 0 0" />

@@ -21,7 +21,11 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal">
-                        <Label  Content="Search Option" FontSize="35"  Margin="200 20 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                        <StackPanel Orientation="Vertical" Margin="0 0 0 0">
+                            <Label  Content="Search Type" FontSize="25"  Margin="250 25 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                            <Label  Content="Search Value" FontSize="25"  Margin="250 15 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+
+                        </StackPanel>
                         <StackPanel Orientation="Vertical">
                             <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                                 <ComboBoxItem Content="Ambulance ID"/>

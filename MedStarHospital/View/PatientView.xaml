@@ -28,11 +28,13 @@
 
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal" Margin="45 -10 00 00">
-                            <Label  Content="Search Option" Height="40" Width="150" FontSize="20" Background="Transparent" FontWeight="Black" FontFamily="times new roman" />
-                            
+                        <StackPanel Orientation="Vertical" Margin="-250 0 0 0">
+                            <Label  Content="Search Type" FontSize="25"  Margin="250 25 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                            <Label  Content="Search Value" FontSize="25"  Margin="250 15 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
 
+                        </StackPanel>
 
-                            <Grid Margin="10 30 00 00">
+                        <Grid Margin="10 30 00 00">
                                 <StackPanel Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                                     <StackPanel Orientation="Vertical">
                                         <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="30" Width="230" >
