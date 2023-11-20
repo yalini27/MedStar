@@ -17,7 +17,7 @@
 
         </Grid.RowDefinitions>
         <Grid Background="SkyBlue">
-            <TextBlock Text="Department Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
+            <TextBlock Text="Facility Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
         </Grid>
 
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
