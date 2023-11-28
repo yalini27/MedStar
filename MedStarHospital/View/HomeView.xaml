@@ -21,13 +21,13 @@
 
                     <TextBlock Height="40" Width="150" FontSize="25" TextAlignment="Center" Margin="0 0 0 0" Foreground="White" FontFamily="times new roman" Background="Transparent" Text="{Binding User.UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     <Image Source="\Image\icon.jpg" Width="100"/>
-                    <Button Style="{DynamicResource ButtonStyle1}" Content="Users Management" Command="{Binding cmdCommonAll}" CommandParameter="Users" Width="160" Margin="0 20 0 0" FontSize="13"/>
+                    <Button Style="{DynamicResource ButtonStyle1}" Content="User Management" Command="{Binding cmdCommonAll}" CommandParameter="Users" Width="160" Margin="0 20 0 0" FontSize="13"/>
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Facility Management" Command="{Binding cmdCommonAll}" CommandParameter="Department" Width="160" Margin="0 10 0 0" FontSize="13" />
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Doctor Management" Command="{Binding cmdCommonAll}" CommandParameter="Doctor" Height="40" Width="160" FontSize="13" Margin="0 10 0 0" />
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Appointment Management" Command="{Binding cmdCommonAll}"  CommandParameter="Booking" Height="40" Width="160" FontSize="13" Margin="0 10 0 0" />
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Payment Management" Command="{Binding cmdCommonAll}"  CommandParameter="Payment" Height="40" Width="160" FontSize="13" Margin="0 10 0 0"/>
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Labortary Management" Command="{Binding cmdCommonAll}"  CommandParameter="Testing" Height="40" Width="160" FontSize="13" Margin="0 10 0 0"/>
-                    <Button Style="{DynamicResource ButtonStyle1}" Content="Ambulance Manegement" Command="{Binding cmdCommonAll}"  CommandParameter="Ambulance" Height="40" Width="160" FontSize="13" Margin="0 10 0 0"/>
+                    <Button Style="{DynamicResource ButtonStyle1}" Content="Ambulance Management" Command="{Binding cmdCommonAll}"  CommandParameter="Ambulance" Height="40" Width="160" FontSize="13" Margin="0 10 0 0"/>
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Pharmacy Management" Command="{Binding cmdCommonAll}"  CommandParameter="Pharmacy" Height="40" Width="160" FontSize="13" Margin="0 10 0 0"/>
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Driver Management" Command="{Binding cmdCommonAll}"  CommandParameter="Driver" Height="40" Width="160" FontSize="13" Margin="0 10 0 0"/>
                     <Button Style="{DynamicResource ButtonStyle1}" Content="LogOut" Background="IndianRed" Command="{Binding cmdCommonAll}"  CommandParameter="Back" Height="40" Width="160" FontSize="13" Margin="0 10 0 0" />
