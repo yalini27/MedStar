@@ -119,8 +119,8 @@ namespace MedStarHospital.ViewModel
                     AmbulanceNumber = reader.GetValue(3).ToString(),
                     Driver = new DriverModel
                     {
-                        DriverID = (string)reader.GetValue(2),
-                        DriverName = Sql_Connection.SpaficDataISINTable("tblDriver", "DriverName", "DriverID", reader.GetValue(2).ToString()),
+                        DriverID = (string)reader.GetValue(1),
+                        DriverName = Sql_Connection.SpaficDataISINTable1("tblDriver", "DriverName", "DriverID", reader.GetValue(1).ToString()),
                     }
                 });
             }
@@ -187,8 +187,8 @@ namespace MedStarHospital.ViewModel
 
                     Driver = new DriverModel
                     {
-                        DriverID = (string)reader.GetValue(2),
-                        DriverName = Sql_Connection.SpaficDataISINTable("tblDriver", "DriverName", "DriverID", reader.GetValue(1).ToString()),
+                        DriverID = (string)reader.GetValue(1),
+                        DriverName = Sql_Connection.SpaficDataISINTable1("tblDriver", "DriverName", "DriverID", reader.GetValue(1).ToString()),
                     }
 
                 });

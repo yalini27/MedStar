@@ -30,11 +30,11 @@ namespace MedStarHospital.ViewModel
             set { _btnBack = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<DriverModel> _driverCollection = new ObservableCollection<DriverModel>();
+        private ObservableCollection<DriverModel> _driverCollection;
 
         public ObservableCollection<DriverModel> DriverCollection
         {
-            get { return _driverCollection = new ObservableCollection<DriverModel>(); }
+            get { return _driverCollection ; }
             set { _driverCollection = value; OnPropertyChanged(); }
         }
 
@@ -42,33 +42,73 @@ namespace MedStarHospital.ViewModel
 
         public DriverModel SelectedDriver
         {
-            get { return _selecteddriver = new DriverModel(); }
+            get { return _selecteddriver; }
             set { _selecteddriver = value; OnPropertyChanged(); }
         }
 
 
         void fnGetDriver()
         {
-            Sql_Connection.sql_connection();
+
             DriverCollection = new ObservableCollection<DriverModel>();
-            string Query = $"Select * from tblDriver";
-            SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
-            var reader = command.ExecuteReader();
+            Sql_Connection.DBConnection();
+            Sql_Connection.sql_connection();
+
+
+            var SerchQuary = $"select *  from tblDriver ";
+
+            var Command = new SqlCommand(SerchQuary, Sql_Connection.getconnection());
+            var reader = Command.ExecuteReader();
             while (reader.Read())
             {
-                DriverCollection.Add(new DriverModel
+                DriverModel model = new DriverModel()
                 {
                     DriverID = (string)reader.GetValue(0),
-                    DriverName = (string)reader.GetValue(1),
+                    DriverName = (reader.GetValue(1).ToString()),
                     PhoneNumber = (long)reader.GetValue(2),
                     Password = (string)reader.GetValue(3),
                     CurrentLocation = (string)reader.GetValue(4),
                     ServiceLocation = (string)reader.GetValue(5),
-                    Status = (string)reader.GetValue(6)
+                    Status = (string)reader.GetValue(6),
+                };
+                DriverCollection.Add(model);                    
+                    
+                    
 
-                });
+
+                //DriverCollection.Add(new DriverModel
+                //{
+                //    DriverID = (string)reader.GetValue(0),
+                //    DriverName = (reader.GetValue(1).ToString()),
+                //    PhoneNumber = (long)reader.GetValue(2),
+                //    Password = (string)reader.GetValue(3),
+                //    CurrentLocation = (string)reader.GetValue(4),
+                //    ServiceLocation = (string)reader.GetValue(5),
+                //    Status = (string)reader.GetValue(6),
+                //});
             }
+
             Sql_Connection.close_connection();
+            //Sql_Connection.sql_connection();
+            //DriverCollection = new ObservableCollection<DriverModel>();
+            //string Query = $"Select * from tblDriver";
+            //SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
+            //var reader = command.ExecuteReader();
+            //while (reader.Read())
+            //{
+            //    DriverCollection.Add(new DriverModel
+            //    {
+            //        DriverID = (string)reader.GetValue(0),
+            //        DriverName = (string)reader.GetValue(1),
+            //        PhoneNumber = (long)reader.GetValue(2),
+            //        Password = (string)reader.GetValue(3),
+            //        CurrentLocation = (string)reader.GetValue(4),
+            //        ServiceLocation = (string)reader.GetValue(5),
+            //        Status = (string)reader.GetValue(6)
+
+            //    });
+            //}
+            //Sql_Connection.close_connection();
         }
 
         public VMAddAmbulance(AmbulanceModel ambulance = null)
