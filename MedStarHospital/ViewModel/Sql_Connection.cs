@@ -11,7 +11,7 @@ namespace MedStarHospital.ViewModel
     public class Sql_Connection
     {
         static SqlConnection connection;
-        public static string ConnectionString = @"Data Source=DESKTOP-5L07T9J\OYSSQLSERVER;Initial Catalog=Hospital_mvvm; TrustServerCertificate=True ; Integrated Security = True";
+        public static string ConnectionString = @"Data Source=DESKTOP-MCFC3SU;Initial Catalog=Hospital_mvvm; TrustServerCertificate=True ; Integrated Security = True";
 
         public static bool DBConnection()
         {
@@ -157,6 +157,26 @@ namespace MedStarHospital.ViewModel
             connection.Open();
             bool Retrunit = false;
             var SerchQuary = $"select {table}.{Name} from {table} where {IDColumnname} ={IDvalue}";
+            var Command = new SqlCommand(SerchQuary, connection);
+            var reader = Command.ExecuteReader();
+            while (reader.Read())
+            {
+
+                datavalue = reader.GetValue(0).ToString();
+            }
+            connection.Close();
+
+            return datavalue;
+
+        }
+
+        public static string SpaficDataISINTable1(string table, string Name, string IDColumnname, string IDvalue)
+        {
+            DBConnection();
+            string datavalue = "";
+            connection.Open();
+            bool Retrunit = false;
+            var SerchQuary = $"select {table}.{Name} from {table} where {IDColumnname} ='{IDvalue}'";
             var Command = new SqlCommand(SerchQuary, connection);
             var reader = Command.ExecuteReader();
             while (reader.Read())
