@@ -156,6 +156,8 @@ namespace MedStarHospital.ViewModel
                     {
                         MessageBox.Show("Invalid datas", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
+
+                    VMDriver.driverrefresh.Invoke();
                     break;
 
 
