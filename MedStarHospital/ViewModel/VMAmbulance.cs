@@ -79,7 +79,7 @@ namespace MedStarHospital.ViewModel
         bool fnCanExecuteUser(object o)
         {
 
-            return User.Role.ToLower() == "receptionist" ? false : true;
+            return (User.Role.ToLower() == "receptionist") ||(User.Role.ToLower() == "driver") ? false : true;
         }
 
         void AutoApply()

@@ -140,7 +140,7 @@ namespace MedStarHospital.ViewModel
                 return false;
             if(User.Role.ToLower() == "pharmacist" &&  (o.ToString() == "Users" || o.ToString() == "Department" || o.ToString() == "Doctor" || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Testing" || o.ToString() == "Ambulance" || o.ToString() == "Driver"))
                 return false;
-            if(User.Role.ToLower() =="driver" && (o.ToString() == "Users" || o.ToString() == "Department" || o.ToString() == "Doctor" || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Testing" || o.ToString() == "Ambulance" || o.ToString() == "Pharmacy"))
+            if(User.Role.ToLower() =="driver" && (o.ToString() == "Users" || o.ToString() == "Department" || o.ToString() == "Doctor" || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Testing" || o.ToString() == "Pharmacy"))
                 return false;
             return true;
 
