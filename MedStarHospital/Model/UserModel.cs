@@ -49,5 +49,13 @@ namespace MedStarHospital.Model
             get { return _status; }
             set { _status = value; OnPropertyChanged(); }
         }
+
+        private string _driverid;
+
+        public string DriverID
+        {
+            get { return _driverid; }
+            set { _driverid = value; OnPropertyChanged(); }
+        }
     }
 }

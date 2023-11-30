@@ -205,7 +205,9 @@ namespace MedStarHospital.ViewModel
                     UserID = int.Parse(reader.GetValue(0).ToString()),
                     UserName = reader.GetValue(1).ToString(),
                     Role = reader.GetValue(3).ToString(),
-                    Password = reader.GetValue(2).ToString()
+                    Password = reader.GetValue(2).ToString(),
+                    Status = reader.GetValue(4).ToString(),    
+                    DriverID = reader.GetValue(5).ToString()
                 });
             }
 

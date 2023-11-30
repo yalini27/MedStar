@@ -141,7 +141,7 @@ namespace MedStarHospital.ViewModel
                         Sql_Connection.close_connection();
 
                         Sql_Connection.sql_connection();
-                        string Query1 = $"insert into tblUser values('" + User.UserID + "','" + DriverModel.DriverName + "','" + DriverModel.Password + "','" + User.Role + "','" + DriverModel.Status + "')";
+                        string Query1 = $"insert into tblUser values('" + User.UserID + "','" + DriverModel.DriverName + "','" + DriverModel.Password + "','" + User.Role + "','" + DriverModel.Status + "','" + DriverModel.DriverID + "')";
                         SqlCommand command1 = new SqlCommand(Query1, Sql_Connection.getconnection());
                         SqlDataAdapter adapter1 = new SqlDataAdapter();
                         adapter1.InsertCommand = new SqlCommand(Query1, Sql_Connection.getconnection());
@@ -188,7 +188,7 @@ namespace MedStarHospital.ViewModel
                     {
                         MessageBox.Show("Invalid datas", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
-
+                    VMDriver.driverrefresh.Invoke();
                     break;
             }
 

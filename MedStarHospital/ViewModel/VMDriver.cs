@@ -126,55 +126,67 @@ namespace MedStarHospital.ViewModel
 
         void fnReset(object param)
         {
-            DriverList = new ObservableCollection<DriverModel>();
-            Sql_Connection.sql_connection();
-            string Query = $"select *  from tblDriver ";
-            SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
-            var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                DriverList.Add(new DriverModel
-                {
-                    DriverID = (string)reader.GetValue(0),
-                    DriverName = (reader.GetValue(1).ToString()),
-                    PhoneNumber = (long)reader.GetValue(2),
-                    Password = (string)reader.GetValue(3),
-                    CurrentLocation = (string)reader.GetValue(4),
-                    ServiceLocation = (string)reader.GetValue(5),
-                    Status = (string)reader.GetValue(6),
-                });
-            }
-
-            Sql_Connection.close_connection();
+            fnView();
         }
 
         void fnView()
         {
 
             DriverList = new ObservableCollection<DriverModel>();
-            Sql_Connection.DBConnection();
-            Sql_Connection.sql_connection();
 
-
-            var SerchQuary = $"select *  from tblDriver ";
-
-            var Command = new SqlCommand(SerchQuary, Sql_Connection.getconnection());
-            var reader = Command.ExecuteReader();
-            while (reader.Read())
+            if(User.Role =="Driver")
             {
-                DriverList.Add(new DriverModel
-                {
-                    DriverID = (string)reader.GetValue(0),
-                    DriverName = (reader.GetValue(1).ToString()),
-                    PhoneNumber = (long)reader.GetValue(2),
-                    Password = (string)reader.GetValue(3),
-                    CurrentLocation = (string) reader.GetValue(4),
-                    ServiceLocation = (string)reader.GetValue(5),
-                    Status = (string)reader.GetValue(6),
-                });
-            }
+                Sql_Connection.DBConnection();
+                Sql_Connection.sql_connection();
 
-            Sql_Connection.close_connection();
+
+                var SerchQuary = $"select *  from tblDriver Where DriverID = '{User.DriverID}' ";
+
+                var Command = new SqlCommand(SerchQuary, Sql_Connection.getconnection());
+                var reader = Command.ExecuteReader();
+                while (reader.Read())
+                {
+                    DriverList.Add(new DriverModel
+                    {
+                        DriverID = (string)reader.GetValue(0),
+                        DriverName = (reader.GetValue(1).ToString()),
+                        PhoneNumber = (long)reader.GetValue(2),
+                        Password = (string)reader.GetValue(3),
+                        CurrentLocation = (string)reader.GetValue(4),
+                        ServiceLocation = (string)reader.GetValue(5),
+                        Status = (string)reader.GetValue(6),
+                    });
+                }
+
+                Sql_Connection.close_connection();
+            }
+            else if(User.Role =="Admin")
+            {
+                Sql_Connection.DBConnection();
+                Sql_Connection.sql_connection();
+
+
+                var SerchQuary = $"select *  from tblDriver ";
+
+                var Command = new SqlCommand(SerchQuary, Sql_Connection.getconnection());
+                var reader = Command.ExecuteReader();
+                while (reader.Read())
+                {
+                    DriverList.Add(new DriverModel
+                    {
+                        DriverID = (string)reader.GetValue(0),
+                        DriverName = (reader.GetValue(1).ToString()),
+                        PhoneNumber = (long)reader.GetValue(2),
+                        Password = (string)reader.GetValue(3),
+                        CurrentLocation = (string)reader.GetValue(4),
+                        ServiceLocation = (string)reader.GetValue(5),
+                        Status = (string)reader.GetValue(6),
+                    });
+                }
+
+                Sql_Connection.close_connection();
+            }
+            
         }
         public static Action exit;
         //void fnDelete(object param)
