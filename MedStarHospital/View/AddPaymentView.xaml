@@ -27,7 +27,7 @@
                     <Button Style="{DynamicResource ButtonStyle1}" Content="Calculate" Height="40" Width="100" Foreground="#66023C" Background="SkyBlue" Margin="0 10 0 0" Command="{Binding cmdcalculate}"/>
                     <TextBlock  Text="Balance" Height="30" Width="120" Background="Transparent" Foreground="White" FontSize="15" Margin="-150 10 0 0" />
                     <TextBlock Foreground="White"  Height="30" Width="120" Margin="130 -30 0 0" Text="{Binding Payment.Balance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
-                    <Button Style="{DynamicResource ButtonStyle1}" Content="Pay" Command="{Binding cmdAdd}" Height="40" Width="100" Margin="0 30 0 0" Foreground="#66023C" Background="SkyBlue"/>
+                    <Button Style="{DynamicResource ButtonStyle1}" Content="Invoice" Command="{Binding cmdAdd}" Height="40" Width="100" Margin="0 30 0 0" Foreground="#66023C" Background="SkyBlue"/>
                 </StackPanel>
             </Border>
         </Border>

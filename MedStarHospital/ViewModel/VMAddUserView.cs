@@ -25,7 +25,7 @@ namespace MedStarHospital.ViewModel
             if (user == null)
             {
                 btn = "ADD";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             else
             {
@@ -39,7 +39,7 @@ namespace MedStarHospital.ViewModel
                     Status = user.Status
                 };
                 btn = "UPDATE";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             UserList = new ObservableCollection<UserModel>();
             //fngetRole();

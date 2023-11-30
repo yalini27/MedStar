@@ -35,7 +35,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISDoctor();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -46,7 +46,7 @@ namespace MedStarHospital.ViewModel
                     Amount = testing.Amount,
                 };
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
 
         }

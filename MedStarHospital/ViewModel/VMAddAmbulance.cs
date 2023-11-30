@@ -73,42 +73,9 @@ namespace MedStarHospital.ViewModel
                 };
                 DriverCollection.Add(model);                    
                     
-                    
-
-
-                //DriverCollection.Add(new DriverModel
-                //{
-                //    DriverID = (string)reader.GetValue(0),
-                //    DriverName = (reader.GetValue(1).ToString()),
-                //    PhoneNumber = (long)reader.GetValue(2),
-                //    Password = (string)reader.GetValue(3),
-                //    CurrentLocation = (string)reader.GetValue(4),
-                //    ServiceLocation = (string)reader.GetValue(5),
-                //    Status = (string)reader.GetValue(6),
-                //});
             }
 
             Sql_Connection.close_connection();
-            //Sql_Connection.sql_connection();
-            //DriverCollection = new ObservableCollection<DriverModel>();
-            //string Query = $"Select * from tblDriver";
-            //SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
-            //var reader = command.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    DriverCollection.Add(new DriverModel
-            //    {
-            //        DriverID = (string)reader.GetValue(0),
-            //        DriverName = (string)reader.GetValue(1),
-            //        PhoneNumber = (long)reader.GetValue(2),
-            //        Password = (string)reader.GetValue(3),
-            //        CurrentLocation = (string)reader.GetValue(4),
-            //        ServiceLocation = (string)reader.GetValue(5),
-            //        Status = (string)reader.GetValue(6)
-
-            //    });
-            //}
-            //Sql_Connection.close_connection();
         }
 
         public VMAddAmbulance(AmbulanceModel ambulance = null)
@@ -119,7 +86,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISAmbulance();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -129,9 +96,7 @@ namespace MedStarHospital.ViewModel
                     Driver = ambulance.Driver,
                     AmbulanceNumber = ambulance.AmbulanceNumber,
                     ActiveStatus = ambulance.ActiveStatus
-                  
-                    //Active = ambulance.Active,
-                    //Inactive = ambulance.Inactive
+
                 };
                 if (ambulance.ActiveStatus == true)
                 {
@@ -142,7 +107,7 @@ namespace MedStarHospital.ViewModel
                     Ambulance.Inactive = true;
                 }
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
 
         }

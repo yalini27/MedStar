@@ -61,7 +61,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISDepartment();
                 btn = "ADD";
-                btnback = "BACK";
+                btnback = "CLOSE";
 
             }
             else

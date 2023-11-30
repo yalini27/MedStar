@@ -57,7 +57,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISDoctor();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -72,7 +72,7 @@ namespace MedStarHospital.ViewModel
 
                 SelectedDepartment = Departments.FirstOrDefault(d => d.DepartmentID == Doctor.Department.DepartmentID);
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
 
         }

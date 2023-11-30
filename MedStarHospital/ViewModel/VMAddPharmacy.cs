@@ -25,7 +25,7 @@ namespace MedStarHospital.ViewModel
             if (pharmacy == null)
             {
                 btn = "ADD";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             else
             {
@@ -39,7 +39,7 @@ namespace MedStarHospital.ViewModel
                     UnitPrice = pharmacy.UnitPrice
                 };
                 btn = "UPDATE";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             PharmacyList = new ObservableCollection<PharmacyModel>();
             //fngetRole();

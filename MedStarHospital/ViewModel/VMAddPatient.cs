@@ -143,7 +143,7 @@ namespace MedStarHospital.ViewModel
                 ISPatient();
                 //ISTesting();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -167,7 +167,7 @@ namespace MedStarHospital.ViewModel
                 }
 
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             Patients = new ObservableCollection<PatientModel>();
         }

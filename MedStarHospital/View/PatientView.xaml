@@ -21,8 +21,8 @@
 
                     <StackPanel Orientation="Horizontal" Margin="150 00 00 00">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20 00 00 00">
-                            <RadioButton FontSize="15" FontFamily="times new roman" Content="View  doctor Consult details" IsChecked="{Binding WithDoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <RadioButton FontSize="15" FontFamily="times new roman" Content="View Testing Details" IsChecked="{Binding Withoutdoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <RadioButton FontSize="15" FontFamily="times new roman" Content="Doctor Consultant details" IsChecked="{Binding WithDoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <RadioButton FontSize="15" FontFamily="times new roman" Content="Medical test Details" IsChecked="{Binding Withoutdoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </StackPanel>
 
@@ -174,13 +174,6 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <!--<DataGridTemplateColumn Header="Payment" >
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button fa5:Awesome.Content="Solid_MoneyBill" Background="Transparent" Foreground="Green" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.billview}" CommandParameter="{Binding}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
 
                     <DataGridTemplateColumn Header="Edit" >
                         <DataGridTemplateColumn.CellTemplate>
@@ -229,13 +222,13 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Testing Type ID" Width="1*" Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                    <!--<DataGridTemplateColumn Header="Testing Type ID" Width="1*" Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding TestingType.TestingTypeID}" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
 
                     <DataGridTemplateColumn Header="Testing Type Name" Width="1*" Visibility="{Binding WithoutDoctor,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                         <DataGridTemplateColumn.CellTemplate>
@@ -252,15 +245,6 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-
-
-                    <!--<DataGridTemplateColumn Header="Payment" >
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button fa5:Awesome.Content="Solid_MoneyBill" Background="Transparent" Foreground="Green" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.Testingbillview}" CommandParameter="{Binding}" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>-->
 
 
                     <DataGridTemplateColumn Header="Edit" >
