@@ -26,13 +26,13 @@
                             <Label  Content="Search Value" FontSize="25"  Margin="250 15 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
 
                         </StackPanel>
-                        <StackPanel Orientation="Vertical">
-                            <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
+                        <StackPanel Orientation="Vertical" >
+                            <ComboBox IsEnabled="{Binding EnableSearch}" Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                                 <ComboBoxItem Content="Driver ID"/>
                                 <ComboBoxItem Content="Driver Name"/>
 
                             </ComboBox>
-                            <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman"/>
+                            <TextBox IsEnabled="{Binding EnableSearch}" Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman"/>
 
 
                             <StackPanel Orientation="Horizontal" Margin="-720 0 0 0">
@@ -66,8 +66,7 @@
 
                                     <Button fa5:Awesome.Content="Solid_PencilAlt"  Width="50" Height="50" Foreground="Green" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, 
                                         Path=DataContext.cmdEdit}" CommandParameter="{Binding}"/>
-                                    <!--<Button fa5:Awesome.Content="Solid_Trash"  Width="50" Height="50" Foreground="IndianRed" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, 
-                                        Path=DataContext.cmdDelete}" CommandParameter="{Binding}"/>-->
+                                   
                                 </StackPanel>
                                 <Image Source="\Image\ambulancedriver.png" Height="200" Width="200" Margin="0 -30 0 0"/>
 

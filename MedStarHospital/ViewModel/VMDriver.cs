@@ -33,6 +33,15 @@ namespace MedStarHospital.ViewModel
             set { _column = value; OnPropertyChanged(); }
         }
 
+        private bool _enablesearch;
+
+        public bool EnableSearch
+        {
+            get { return _enablesearch; }
+            set { _enablesearch = value; }
+        }
+
+
         public static Action driverrefresh;
 
         public VMDriver(UserModel user)
@@ -40,6 +49,15 @@ namespace MedStarHospital.ViewModel
             User = user;
             fnView();
             driverrefresh += OnDriverRefresh;
+
+            if (User.Role == "Driver")
+            {
+                EnableSearch = false;
+            }
+            else
+            {
+                EnableSearch = true;
+            }
             //AppEvents.RefreshTestingType += OnRefreshTestingType;
         }
         void OnDriverRefresh()
@@ -47,9 +65,8 @@ namespace MedStarHospital.ViewModel
             fnView();
         }
 
-        public ICommand cmdAdd { get { return new RelayCommand(fnAdd); } }
-        //public ICommand cmdDelete { get { return new RelayCommand(fnDelete, fnCanExecuteUser); } }
-        //public ICommand cmdApply { get { return new RelayCommand(fnApply); } }
+        public ICommand cmdAdd { get { return new RelayCommand(fnAdd, fnCanExecuteUser); } }
+
         public ICommand cmdReset { get { return new RelayCommand(fnReset); } }
 
         void fnAdd(object param)
@@ -83,6 +100,7 @@ namespace MedStarHospital.ViewModel
 
         void AutoApply()
         {
+            EnableSearch = false;
             switch (Field)
             {
                 case "Driver ID":

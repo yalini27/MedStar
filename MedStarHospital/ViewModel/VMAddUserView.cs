@@ -68,7 +68,7 @@ namespace MedStarHospital.ViewModel
                     if (validation())
                     {
                         Sql_Connection.sql_connection();
-                        string Query = $"insert into tblUser values('" + User.UserID + "','" + User.UserName + "','" + User.Password + "','" + User.Role + "','" + User.Status + "')";
+                        string Query = $"insert into  tblUser (userID, UserName, Password_no, Role_name,status_state) values('" + User.UserID + "','" + User.UserName + "','" + User.Password + "','" + User.Role + "','" + User.Status + "')";
                         SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
                         SqlDataAdapter adapter = new SqlDataAdapter();
                         adapter.InsertCommand = new SqlCommand(Query, Sql_Connection.getconnection());
