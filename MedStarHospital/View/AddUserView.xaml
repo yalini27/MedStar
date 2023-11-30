@@ -42,7 +42,7 @@
                     <ComboBoxItem>Receptionist</ComboBoxItem>
                     <ComboBoxItem>Doctor</ComboBoxItem>
                     <ComboBoxItem>Pharmacist</ComboBoxItem>
-                    <ComboBoxItem>Driver</ComboBoxItem>
+                    
                 </ComboBox>
             </StackPanel>
 

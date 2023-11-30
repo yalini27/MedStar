@@ -15,7 +15,7 @@ namespace MedStarHospital.ViewModel
 {
     public class VMAmbulance  :ViewModelBase
     {
-        public ICommand cmdEdit { get { return new RelayCommand(fnEdit); } }
+        public ICommand cmdEdit { get { return new RelayCommand(fnEdit, fnCanExecuteUser); } }
 
         public Brush SliceColor { get; set; }
 
@@ -48,9 +48,8 @@ namespace MedStarHospital.ViewModel
             fnView();
         }
 
-        public ICommand cmdAdd { get { return new RelayCommand(fnAdd); } }
-        public ICommand cmdDelete { get { return new RelayCommand(fnDelete); } }
-        //public ICommand cmdApply { get { return new RelayCommand(fnApply); } }
+        public ICommand cmdAdd { get { return new RelayCommand(fnAdd, fnCanExecuteUser); } }
+
         public ICommand cmdReset { get { return new RelayCommand(fnReset); } }
 
         void fnAdd(object param)
@@ -79,7 +78,8 @@ namespace MedStarHospital.ViewModel
 
         bool fnCanExecuteUser(object o)
         {
-            return User.Role.ToLower() == "admin" ? true : false;
+
+            return User.Role.ToLower() == "receptionist" ? false : true;
         }
 
         void AutoApply()
@@ -146,23 +146,7 @@ namespace MedStarHospital.ViewModel
         void fnReset(object param)
         {
             fnView();
-            //AmbulanceList = new ObservableCollection<AmbulanceModel>();
-            //Sql_Connection.sql_connection();
-            //string Query = $"select *  from tblAmbulance ";
-            //SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
-            //var reader = command.ExecuteReader();
-            //while (reader.Read())
-            //{
-            //    AmbulanceList.Add(new AmbulanceModel
-            //    {
-            //        AmbulanceID = (int)reader.GetValue(0),
-            //        DriverName = (reader.GetValue(1).ToString()),
-            //        ActiveStatus = (bool)reader.GetValue(2),
-            //        AmbulanceNumber = reader.GetValue(3).ToString(),
-            //    });
-            //}
 
-            //Sql_Connection.close_connection();
         }
 
         void fnView()
@@ -211,35 +195,9 @@ namespace MedStarHospital.ViewModel
 
             Sql_Connection.close_connection();
         }
+
         public static Action exit;
-        void fnDelete(object param)
-        {
-
-            AmbulanceModel bv = param as AmbulanceModel;
-            try
-            {
-                if (MessageBox.Show("Do you want to delete this Ambulance Service?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                {
-                    Sql_Connection.sql_connection();
-                    string QUERY = $"delete from tblAmbulance where AmbulanceID = {bv.AmbulanceID}";
-                    SqlCommand command = new SqlCommand(QUERY, Sql_Connection.getconnection());
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    adapter.InsertCommand = new SqlCommand(QUERY, Sql_Connection.getconnection());
-                    adapter.InsertCommand.ExecuteNonQuery();
-                    adapter.Dispose();
-                    command.Dispose();
-                    Sql_Connection.close_connection();
-                    MessageBox.Show("Delete Successfully!", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
-                    fnView();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Sql_Connection.close_connection();
-                MessageBox.Show("You can not delete", "delete Testing Type", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
+       
 
         private AmbulanceModel _ambulancemodel;
         public AmbulanceModel AmbulanceModel
