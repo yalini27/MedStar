@@ -134,9 +134,9 @@ namespace MedStarHospital.ViewModel
         {
             if(User.Role.ToLower() == "admin")
                 return  true;
-            if (User.Role.ToLower() == "doctor" && (o.ToString() == "Users"  || o.ToString() == "Booking" || o.ToString() == "Payment"))
+            if (User.Role.ToLower() == "doctor" && (o.ToString() == "Users"  || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Ambulance" || o.ToString() == "Pharmacy" || o.ToString() == "Driver"))
                 return false;  
-            if (User.Role.ToLower() == "receptionist" && (o.ToString() == "Users"))
+            if (User.Role.ToLower() == "receptionist" && (o.ToString() == "Users" || o.ToString() == "Pharmacy" || o.ToString() == "Ambulance" || o.ToString() == "Driver"))
                 return false;
             if(User.Role.ToLower() == "pharmacist" &&  (o.ToString() == "Users" || o.ToString() == "Department" || o.ToString() == "Doctor" || o.ToString() == "Booking" || o.ToString() == "Payment" || o.ToString() == "Testing" || o.ToString() == "Ambulance" || o.ToString() == "Driver"))
                 return false;

@@ -69,8 +69,7 @@
 
                                     <Button fa5:Awesome.Content="Solid_PencilAlt"  Width="50" Height="50" Foreground="Green" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, 
                                         Path=DataContext.cmdEdit}" CommandParameter="{Binding}"/>
-                                    <Button fa5:Awesome.Content="Solid_Trash"  Width="50" Height="50" Foreground="IndianRed" Background="Transparent" Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}, 
-                                        Path=DataContext.cmdDelete}" CommandParameter="{Binding}"/>
+
                                 </StackPanel>
                                 <Image Source="\Image\Ambulance.png" Height="150" Width="150" Margin="0 -30 0 0"/>
                                 <VirtualizingStackPanel HorizontalAlignment="Left" Orientation="Vertical">
