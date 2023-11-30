@@ -16,10 +16,10 @@
         <Border Background="CadetBlue" Margin="00 10 00 00">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" Margin="0 -100 0 0">
-                    <TextBlock Text="Appointment Management" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
+                    <TextBlock Text="Appointment Management" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkBlue" FontFamily="times new roman" Margin="30 -10 0 0"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Horizontal" Margin="200 00 00 00">
+                    <StackPanel Orientation="Horizontal" Margin="150 00 00 00">
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20 00 00 00">
                             <RadioButton FontSize="15" FontFamily="times new roman" Content="View  doctor Consult details" IsChecked="{Binding WithDoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             <RadioButton FontSize="15" FontFamily="times new roman" Content="View Testing Details" IsChecked="{Binding Withoutdoc, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
