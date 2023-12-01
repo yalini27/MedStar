@@ -115,7 +115,16 @@ namespace MedStarHospital.ViewModel
         public void ISAmbulance()
         {
             Ambulance = new();
-            Ambulance.AmbulanceID = Sql_Connection.IsData("tblAmbulance") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblAmbulance", "AmbulanceID", "AmbulanceID")) + 1 : 1;
+            var id =  Sql_Connection.SpaficDataISINTable("tblAmbulance", "AmbulanceID", "AmbulanceID");
+
+            if (id == "")
+            {
+                Ambulance.AmbulanceID = 1;
+            }
+            else
+            {
+                Ambulance.AmbulanceID = Convert.ToInt32(id)+ 1;
+            }
         }
 
         public ICommand cmdOption { get { return new RelayCommand(fnOption); } }

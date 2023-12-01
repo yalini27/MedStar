@@ -173,6 +173,8 @@ namespace MedStarHospital.ViewModel
                     {
                         DriverID = (string)reader.GetValue(1),
                         DriverName = Sql_Connection.SpaficDataISINTable1("tblDriver", "DriverName", "DriverID", reader.GetValue(1).ToString()),
+                        CurrentLocation = Sql_Connection.SpaficDataISINTable1("tblDriver", "CurrentLocation", "DriverID", reader.GetValue(1).ToString()),
+                        ServiceLocation = Sql_Connection.SpaficDataISINTable1("tblDriver", "ServiceLocation", "DriverID", reader.GetValue(1).ToString()),
                     }
 
                 });

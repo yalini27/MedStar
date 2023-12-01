@@ -94,5 +94,32 @@ namespace MedStarHospital.Model
         }
 
 
+        private string _phonenumber;
+
+        public string PhoneNumber
+        {
+            get { return _phonenumber; }
+            set { _phonenumber = value;OnPropertyChanged(); }
+        }
+
+        private string _address;
+
+        public string Address
+        {
+            get { return _address; }
+            set { _address = value; }
+        }
+
+
+        private string _qualification;
+
+        public string Qualification
+        {
+            get { return _qualification; }
+            set { _qualification = value; }
+        }
+
+
+
     }
 }

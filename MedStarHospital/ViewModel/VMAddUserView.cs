@@ -48,7 +48,17 @@ namespace MedStarHospital.ViewModel
         void ISUser()
         {
             User = new();
-            User.UserID = Sql_Connection.IsData("tblUser") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblUser", "userID", "userID")) + 1 : 1;
+            var id = Sql_Connection.SpaficDataISINTable("tblUser", "userID", "userID");
+
+            if (id == "")
+            {
+                User.UserID = 1;
+            }
+
+            else
+            {
+                User.UserID = Convert.ToInt32(id) + 1;
+            }
         }
 
         void fnBack(object param)

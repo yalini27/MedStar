@@ -59,7 +59,7 @@
                             <DropShadowEffect BlurRadius="20" Color="DodgerBlue"/>
                         </Grid.Effect>
 
-                        <Button Margin="20" Background="White" Height="300" Width="300" Style="{DynamicResource ButtonStyle2}" Command="{Binding Path=DataContext.cmdOption,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type ListView}}}" CommandParameter="{Binding}">
+                        <Button Margin="20" Background="White" Height="400" Width="400" Style="{DynamicResource ButtonStyle2}" Command="{Binding Path=DataContext.cmdOption,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type ListView}}}" CommandParameter="{Binding}">
 
                             <StackPanel Orientation="Vertical">
                                 <StackPanel Orientation="Horizontal" Margin="170 0 0 0">
@@ -69,10 +69,26 @@
                                    
                                 </StackPanel>
                                 <Image Source="\Image\ambulancedriver.png" Height="200" Width="200" Margin="0 -30 0 0"/>
+                                <VirtualizingStackPanel  Orientation="Horizontal">
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                        <TextBlock Text="Driver ID :-" FontSize="15"/>
+                                        <TextBlock Text="Driver Name:-" FontSize="15"/>
+                                        <TextBlock Text="Status :-" FontSize="15"/>
+                                        <TextBlock Text="Phone Number:-" FontSize="15" />
+                                        <TextBlock Text="Service Location :-" FontSize="15" />
+                                        <TextBlock Text="Current Location :-" FontSize="15" />
+                                    </StackPanel>
 
-                                <TextBlock Text="{Binding DriverID}" FontSize="20" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding DriverName}" FontSize="20" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Status}" FontSize="20" HorizontalAlignment="Center"/>
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                        <TextBlock Text="{Binding DriverID}" FontSize="15"/>
+                                        <TextBlock Text="{Binding DriverName}" FontSize="15"/>
+                                        <TextBlock Text="{Binding Status}" FontSize="15"/>
+                                        <TextBlock Text="{Binding PhoneNumber}" FontSize="15" />
+                                        <TextBlock Text="{Binding ServiceLocation}" FontSize="15" />
+                                        <TextBlock Text="{Binding CurrentLocation}" FontSize="15" />
+                                    </StackPanel>
+                                </VirtualizingStackPanel>
+                                
 
                             </StackPanel>
 

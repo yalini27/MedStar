@@ -81,18 +81,35 @@
                 </DataGridTemplateColumn>
 
 
-                <DataGridTemplateColumn Header="Department ID" Width="200">
+                <DataGridTemplateColumn Header="Phone Number" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Department.DepartmentID}" VerticalAlignment="Center" FontSize="25" FontFamily="times new roman"/>
+                            <TextBlock Text="{Binding PhoneNumber}" VerticalAlignment="Center" FontSize="25" FontFamily="times new roman"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Department Name" Width="1*">
+                <DataGridTemplateColumn Header="Spe.Unit Name" Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Department.DepartmentName}" VerticalAlignment="Center" FontSize="25" FontFamily="times new roman"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTemplateColumn Header="Address" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Address}" VerticalAlignment="Center" FontSize="25" FontFamily="times new roman"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Qualification" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Qualification}" VerticalAlignment="Center" FontSize="25" FontFamily="times new roman"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

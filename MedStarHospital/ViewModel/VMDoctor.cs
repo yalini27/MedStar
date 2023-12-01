@@ -123,7 +123,10 @@ namespace MedStarHospital.ViewModel
                         {
                             DepartmentID = (int)reader.GetValue(2),
                             DepartmentName = Sql_Connection.SpaficDataISINTable("tblDepartment", "DepartmentName", "DepartmentID", reader.GetValue(2).ToString())
-                        }
+                        },
+                        PhoneNumber = reader.GetValue(4).ToString(),
+                        Qualification = reader.GetValue(5).ToString(),
+                        Address = reader.GetValue(6).ToString()
                     });
                 }
 
@@ -150,7 +153,10 @@ namespace MedStarHospital.ViewModel
                     {
                         DepartmentID = (int)reader.GetValue(2),
                         DepartmentName = Sql_Connection.SpaficDataISINTable("tblDepartment", "DepartmentName", "DepartmentID", reader.GetValue(2).ToString())
-                    }
+                    },
+                    PhoneNumber = reader.GetValue(4).ToString(),
+                    Qualification = reader.GetValue(5).ToString(),
+                    Address = reader.GetValue(6).ToString()
                 });
             }
 
@@ -180,7 +186,10 @@ namespace MedStarHospital.ViewModel
                     {
                         DepartmentID = (int)reader.GetValue(2),
                         DepartmentName = Sql_Connection.SpaficDataISINTable("tblDepartment", "DepartmentName", "DepartmentID", reader.GetValue(2).ToString())
-                    }
+                    },
+                    PhoneNumber = reader.GetValue(4).ToString(),
+                    Qualification = reader.GetValue(5).ToString(),
+                    Address = reader.GetValue(6).ToString()
                 });
             }
 

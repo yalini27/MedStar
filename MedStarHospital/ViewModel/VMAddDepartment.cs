@@ -81,7 +81,17 @@ namespace MedStarHospital.ViewModel
         public void ISDepartment()
         {
             Department = new();
-            Department.DepartmentID = Sql_Connection.IsData("tblDepartment") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblDepartment", "DepartmentID", "DepartmentID")) + 1 : 1;
+            var id =Sql_Connection.SpaficDataISINTable("tblDepartment", "DepartmentID", "DepartmentID");
+            
+            if (id == "")
+            {
+                Department.DepartmentID = 1;
+            }
+
+            else
+            {
+                Department.DepartmentID = Convert.ToInt32(id) + 1;
+            }
         }
 
     public ICommand cmdOptions { get { return new RelayCommand(fnOptions); } }

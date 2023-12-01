@@ -48,11 +48,8 @@ namespace MedStarHospital.ViewModel
         void ISPharmacy()
         {
             Pharmacy = new();
-
-            //Pharmacy.MedicineID = Sql_Connection.IsData("tblPharmacy") ? Sql_Connection.SpaficDataISINTable("tblPharmacy", "MedicineID", "MedicineID") + 1 : "1";
-            //var number = Sql_Connection.IsData("tblPharmacy");
             var number = Sql_Connection.SpaficDataISINTable("tblPharmacy", "MedicineID", "MedicineID");
-            if(number == null)
+            if(number == "")
             {
                 Pharmacy.MedicineID = "MED001";
             }
