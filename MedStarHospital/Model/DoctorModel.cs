@@ -107,7 +107,7 @@ namespace MedStarHospital.Model
         public string Address
         {
             get { return _address; }
-            set { _address = value; }
+            set { _address = value; OnPropertyChanged(); }
         }
 
 
@@ -116,7 +116,7 @@ namespace MedStarHospital.Model
         public string Qualification
         {
             get { return _qualification; }
-            set { _qualification = value; }
+            set { _qualification = value; OnPropertyChanged(); }
         }
 
 
