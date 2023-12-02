@@ -17,13 +17,13 @@
             <!--<Border Background="WhiteSmoke" Margin="10" CornerRadius="20">-->
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal" Margin="0 -100 0 0">
-                    <TextBlock Text="Facility Management"  FontSize="50" FontFamily="times new roman" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="DarkBlue" Margin="50 -10 0 0"/>
+                    <TextBlock Text="Specialization unit Management"  FontSize="50" FontFamily="times new roman" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="DarkBlue" Margin="50 -10 0 0"/>
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal">
                     <StackPanel Orientation="Vertical">
-                        <Label  Content="Search Type" FontSize="25"  Margin="250 25 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
-                        <Label  Content="Search Value" FontSize="25"  Margin="250 15 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                        <Label  Content="Search Type" FontSize="25"  Margin="200 25 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
+                        <Label  Content="Search Value" FontSize="25"  Margin="200 15 0 0" FontFamily="times new roman" Foreground="DarkBlue"/>
 
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
@@ -46,7 +46,7 @@
         <!--</Border>-->
         <DataGrid Grid.Row="1" RowHeight="40"  VerticalContentAlignment="Center" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Departments, Mode=TwoWay}" CanUserResizeColumns="False" CanUserResizeRows="False">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Department ID" Width="1*">
+                <DataGridTemplateColumn Header="Specialization unit ID" Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding DepartmentID}" VerticalAlignment="Center"/>
@@ -54,7 +54,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Department Name" Width="1*">
+                <DataGridTemplateColumn Header="Specialization unit Name" Width="1*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding DepartmentName}" VerticalAlignment="Center"/>

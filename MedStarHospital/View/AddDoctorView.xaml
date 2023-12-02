@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         BorderThickness="10"
         ResizeMode="NoResize"
-        Title="AddDoctorView" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Title="AddDoctorView" Height="650" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -20,21 +20,27 @@
         </Grid>
 
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBlock Text="Doctor ID" Height="40" Width="250" FontSize="30" Margin="50 40 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Doctor ID" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
             <TextBlock Text="Doctor Name" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
             <TextBlock Text="Visiting Time" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
             <TextBlock Height="50" Width="250" Text="(hh:mm:ss)" FontSize="20" Margin="149,-15,401,15"/>
-            <TextBlock Text="Department Name" Height="40" Width="250" FontSize="30" Margin="50 -30 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Phone Number" Height="40" Width="250" FontSize="30" Margin="50 -30 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Qualification" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Address" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Specialization unit Name" Height="40" Width="250" FontSize="30" Margin="50 25 0 0" HorizontalAlignment="Left"/>
 
 
         </VirtualizingStackPanel>
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBox Height="40" Width="200" Margin="50 40 0 0" Text="{Binding Doctor.Doctorid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+            <TextBox Height="40" Width="200" Margin="50 20 0 0" Text="{Binding Doctor.Doctorid, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
             <TextBox Height="40" Width="200" Margin="50 20 0 0" Text="{Binding Doctor.Doctorname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Doctor.DoctorNameError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
             <TextBox Height="40" Width="200" Margin="50 10 0 0" Text="{Binding Doctor.Visitingtime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Doctor.TimeError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
-            <ComboBox Height="40" Width="200" Margin="50 10 0 0" ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="DepartmentName"/>
+            <TextBox Height="40" Width="200" Margin="50 0 0 0" Text="{Binding Doctor.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Height="40" Width="200" Margin="50 20 0 0" Text="{Binding Doctor.Qualification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Height="40" Width="200" Margin="50 20 0 0" Text="{Binding Doctor.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox Height="40" Width="200" Margin="50 20 0 0" ItemsSource="{Binding Departments}" SelectedItem="{Binding SelectedDepartment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="DepartmentName"/>
         </VirtualizingStackPanel>
         <VirtualizingStackPanel Orientation="Horizontal" Grid.Row="2" Background="SkyBlue">
             <Button Style="{DynamicResource ButtonStyle1}" Content="{Binding btnBack}" Command="{Binding cmdExit}"  Margin="100 0 100 0"  />

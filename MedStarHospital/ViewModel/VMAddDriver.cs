@@ -53,7 +53,7 @@ namespace MedStarHospital.ViewModel
             if (driver == null)
             {
                 btn = "ADD";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             else
             {
@@ -69,7 +69,7 @@ namespace MedStarHospital.ViewModel
                     Status = driver.Status
                 };
                 btn = "UPDATE";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             DriverList = new ObservableCollection<DriverModel>();
             //fngetRole();

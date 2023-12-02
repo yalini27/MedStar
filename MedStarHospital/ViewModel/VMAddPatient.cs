@@ -143,7 +143,7 @@ namespace MedStarHospital.ViewModel
                 ISPatient();
                 //ISTesting();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -167,7 +167,7 @@ namespace MedStarHospital.ViewModel
                 }
 
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             Patients = new ObservableCollection<PatientModel>();
         }
@@ -369,7 +369,17 @@ namespace MedStarHospital.ViewModel
         {
             Patient = new();
             Patient.Department = new DepartmentModel();
-            Patient.PatientId = Sql_Connection.IsData("tblMAppointment") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblMAppointment", "PatientID", "PatientID")) + 1 : 1;
+            var id = Sql_Connection.SpaficDataISINTable("tblMAppointment", "PatientID", "PatientID");
+
+            if (id == "")
+            {
+                Patient.PatientId = 1;
+            }
+
+            else
+            {
+                Patient.PatientId = Convert.ToInt32(id) + 1;
+            }
         }
 
 

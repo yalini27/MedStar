@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using System.Numerics;
 
 namespace MedStarHospital.ViewModel
 {
@@ -35,7 +36,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISDoctor();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -46,7 +47,7 @@ namespace MedStarHospital.ViewModel
                     Amount = testing.Amount,
                 };
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
 
         }
@@ -54,7 +55,17 @@ namespace MedStarHospital.ViewModel
         public void ISDoctor()
         {
             TestingType = new();
-            TestingType.TestingTypeID = Sql_Connection.IsData("tblTestingType") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblTestingType", "TestingTypeID", "TestingTypeID")) + 1 : 1;
+            var id = Sql_Connection.SpaficDataISINTable("tblTestingType", "TestingTypeID", "TestingTypeID");
+
+
+            if (id == "")
+            {
+                TestingType.TestingTypeID = 1;
+            }
+            else
+            {
+                TestingType.TestingTypeID = Convert.ToInt32(id) + 1;
+            }
         }
 
         public ICommand cmdOption { get { return new RelayCommand(fnOption); } }

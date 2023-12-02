@@ -73,14 +73,9 @@ namespace MedStarHospital.ViewModel
                 };
                 DriverCollection.Add(model);                    
                     
-                    
-
-
-               
             }
 
             Sql_Connection.close_connection();
-            
         }
 
         public VMAddAmbulance(AmbulanceModel ambulance = null)
@@ -91,7 +86,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISAmbulance();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -101,9 +96,7 @@ namespace MedStarHospital.ViewModel
                     Driver = ambulance.Driver,
                     AmbulanceNumber = ambulance.AmbulanceNumber,
                     ActiveStatus = ambulance.ActiveStatus
-                  
-                    //Active = ambulance.Active,
-                    //Inactive = ambulance.Inactive
+
                 };
                 if (ambulance.ActiveStatus == true)
                 {
@@ -114,7 +107,7 @@ namespace MedStarHospital.ViewModel
                     Ambulance.Inactive = true;
                 }
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
 
         }
@@ -122,7 +115,16 @@ namespace MedStarHospital.ViewModel
         public void ISAmbulance()
         {
             Ambulance = new();
-            Ambulance.AmbulanceID = Sql_Connection.IsData("tblAmbulance") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblAmbulance", "AmbulanceID", "AmbulanceID")) + 1 : 1;
+            var id =  Sql_Connection.SpaficDataISINTable("tblAmbulance", "AmbulanceID", "AmbulanceID");
+
+            if (id == "")
+            {
+                Ambulance.AmbulanceID = 1;
+            }
+            else
+            {
+                Ambulance.AmbulanceID = Convert.ToInt32(id)+ 1;
+            }
         }
 
         public ICommand cmdOption { get { return new RelayCommand(fnOption); } }

@@ -36,7 +36,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0 0 0 0">
-                <TextBlock Height="40" Width="200" Text="Quantity" FontFamily="times new roman" FontSize="20" Margin="-300 180 0 0"/>
+                <TextBlock Height="40" Width="200" Text="Available Stock" FontFamily="times new roman" FontSize="20" Margin="-300 180 0 0"/>
                 <TextBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding Pharmacy.Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 <!--<ComboBox Height="40" Width="200" Margin="200 -45 0 0" Text="{Binding User.Role, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem>Admin</ComboBoxItem>

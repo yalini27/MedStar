@@ -25,7 +25,7 @@ namespace MedStarHospital.ViewModel
             if (pharmacy == null)
             {
                 btn = "ADD";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             else
             {
@@ -39,7 +39,7 @@ namespace MedStarHospital.ViewModel
                     UnitPrice = pharmacy.UnitPrice
                 };
                 btn = "UPDATE";
-                btnback = "BACK";
+                btnback = "CLOSE";
             }
             PharmacyList = new ObservableCollection<PharmacyModel>();
             //fngetRole();
@@ -48,11 +48,8 @@ namespace MedStarHospital.ViewModel
         void ISPharmacy()
         {
             Pharmacy = new();
-
-            //Pharmacy.MedicineID = Sql_Connection.IsData("tblPharmacy") ? Sql_Connection.SpaficDataISINTable("tblPharmacy", "MedicineID", "MedicineID") + 1 : "1";
-            //var number = Sql_Connection.IsData("tblPharmacy");
             var number = Sql_Connection.SpaficDataISINTable("tblPharmacy", "MedicineID", "MedicineID");
-            if(number == null)
+            if(number == "")
             {
                 Pharmacy.MedicineID = "MED001";
             }

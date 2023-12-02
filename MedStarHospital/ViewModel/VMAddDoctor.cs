@@ -57,7 +57,7 @@ namespace MedStarHospital.ViewModel
             {
                 ISDoctor();
                 btn = "ADD";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
             else
             {
@@ -66,13 +66,15 @@ namespace MedStarHospital.ViewModel
                     Doctorid = doctor.Doctorid,
                     Doctorname = doctor.Doctorname,
                     Department = doctor.Department,
-                    Visitingtime = doctor.Visitingtime
-
+                    Visitingtime = doctor.Visitingtime,
+                    Address = doctor.Address,
+                    Qualification = doctor.Qualification,
+                    PhoneNumber = doctor.PhoneNumber
                 };
 
                 SelectedDepartment = Departments.FirstOrDefault(d => d.DepartmentID == Doctor.Department.DepartmentID);
                 btn = "UPDATE";
-                btnBack = "BACK";
+                btnBack = "CLOSE";
             }
 
         }
@@ -80,7 +82,17 @@ namespace MedStarHospital.ViewModel
         public void ISDoctor()
         {
             Doctor = new();
-            Doctor.Doctorid = Sql_Connection.IsData("tblDoctor") ? int.Parse(Sql_Connection.SpaficDataISINTable("tblDoctor", "DoctorID", "DoctorID")) + 1 : 1;
+            var id =  Sql_Connection.SpaficDataISINTable("tblDoctor", "DoctorID", "DoctorID") ;
+
+            if (id == "")
+            {
+                Doctor.Doctorid = 1;
+            }
+
+            else
+            {
+                Doctor.Doctorid =Convert.ToInt32(id) + 1;
+            }
         }
 
         public ICommand cmdOption { get { return new RelayCommand(fnOption); } }
@@ -100,7 +112,7 @@ namespace MedStarHospital.ViewModel
                         {
 
                             Sql_Connection.sql_connection();
-                            string QUERY = $"Insert into tblDoctor values('" + Doctor.Doctorid + "','" + Doctor.Doctorname + "','" +SelectedDepartment.DepartmentID +"','" + Doctor.Visitingtime + "')";
+                            string QUERY = $"Insert into tblDoctor values('" + Doctor.Doctorid + "','" + Doctor.Doctorname + "','" +SelectedDepartment.DepartmentID +"','" + Doctor.Visitingtime + "','" + Doctor.PhoneNumber + "','" + Doctor.Qualification + "','" + Doctor.Address + "')";
                             SqlCommand command = new SqlCommand(QUERY, Sql_Connection.getconnection());
                             SqlDataAdapter adapter = new SqlDataAdapter();
                             adapter.InsertCommand = new SqlCommand(QUERY, Sql_Connection.getconnection());
@@ -132,7 +144,7 @@ namespace MedStarHospital.ViewModel
                         if (validation())
                         {
                             Sql_Connection.sql_connection();
-                            string Query = $"update tblDoctor set DoctorName = '" + Doctor.Doctorname+ "',DepID='" + SelectedDepartment.DepartmentID + "',VisitingTime='" + Doctor.Visitingtime  + "' where DoctorID ='" + Doctor.Doctorid + "'";
+                            string Query = $"update tblDoctor set DoctorName = '" + Doctor.Doctorname+ "',DepID='" + SelectedDepartment.DepartmentID + "',VisitingTime='" + Doctor.Visitingtime + "',PhoneNumber='" + Doctor.PhoneNumber + "',Qualification='" + Doctor.Qualification + "',Address='" + Doctor.Address + "' where DoctorID ='" + Doctor.Doctorid + "'";
                             SqlCommand command1 = new SqlCommand(Query, Sql_Connection.getconnection());
                             SqlDataAdapter adapter1 = new SqlDataAdapter();
                             adapter1.InsertCommand = new SqlCommand(Query, Sql_Connection.getconnection());

@@ -75,7 +75,7 @@
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Quantity" Width="1*">
+                <DataGridTemplateColumn Header="Available Stock" Width="1*">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
                             <TextBlock Text="{Binding Quantity}"/>
@@ -92,7 +92,7 @@
                 </DataGridTemplateColumn.CellTemplate>
             </DataGridTemplateColumn>
 
-            <DataGridTemplateColumn Header="Edit" Width="50">
+            <DataGridTemplateColumn Header="Edit" Width="100">
                 <DataGridTemplateColumn.CellTemplate>
                     <DataTemplate>
                         <Button fa5:Awesome.Content="Solid_PencilAlt" Foreground="Green" Background="Transparent" 
