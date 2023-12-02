@@ -17,12 +17,12 @@
 
         </Grid.RowDefinitions>
         <Grid Background="SkyBlue">
-            <TextBlock Text="Facility Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
+            <TextBlock Text="Specilaization Unit Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
         </Grid>
 
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBlock Text="Department ID" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
-            <TextBlock Text="Department Name" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Specilaization Unit ID" Height="40" Width="300" FontSize="25" Margin="80 20 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Specilaization Unit Name" Height="40" Width="300" FontSize="25" Margin="80 20 0 0" HorizontalAlignment="Left"/>
             
             <!--<TextBlock Text="Doctor" Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>-->
             <!--<TextBlock Text="Doctor Name" Height="50" Width="250" FontSize="30" Margin="50 0 0 0" HorizontalAlignment="Left"/>-->
@@ -30,8 +30,8 @@
 
         </VirtualizingStackPanel>
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBox Height="40" Width="200" Margin="50 20 0 0" Text="{Binding Department.DepartmentID, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
-            <TextBox Height="40" Width="200" Margin="50 20 0 0" Text="{Binding Department.DepartmentName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Height="40" Width="200" Margin="200 20 0 0" Text="{Binding Department.DepartmentID, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+            <TextBox Height="40" Width="200" Margin="200 20 0 0" Text="{Binding Department.DepartmentName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Height="15" Width="450" Margin="300 0 0 0" Text="{Binding Department.DepNameError, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged }" Foreground="Red" />
             <!--<ComboBox Height="40" Width="200" Margin="50 20 0 0" ItemsSource="{Binding Doctors}" 
                       SelectedItem="{Binding SelectedDoctor,Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Doctorname"
