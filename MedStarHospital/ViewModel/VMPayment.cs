@@ -41,37 +41,7 @@ namespace MedStarHospital.ViewModel
                     Payment.Balance = Payment.Paid - (decimal)Patient.Amount;
                 }
             }
-            //else
-            //{
-            //    if (Payment.Paid < Patient.Amount)
-            //    {
-            //        MessageBox.Show("Enter the correct value...!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //    else
-            //    {
-            //        Payment.Balance = Payment.Paid - (double)Patient.Amount;
-            //    }
-            //}
-            //if(Patient.WithoutDoc)
-            //{
-
-            //    if (Payment.Paid < Patient.Amount)
-            //    {
-            //        MessageBox.Show("Enter the correct value...!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    }
-            //    else
-            //    {
-            //        Payment.Balance = Payment.Paid - (double)Patient.Amount;
-            //    }
-            //}
-            //if (Payment.Paid < Payment.Amount)
-            //{
-            //    MessageBox.Show("Enter the correct value...!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
-            //else
-            //{
-            //    Payment.Balance = Payment.Paid - (double)Payment.Amount;
-            //}
+            
 
         }
         public ICommand cmdAdd { get { return new RelayCommand(fnAdd); } }
@@ -88,13 +58,7 @@ namespace MedStarHospital.ViewModel
             {
                 Patient.Amount = patient.Amount = 2000;
             }
-            //else
-            //{
-            //    foreach (var item in TestingTypeList.Where(t => t.IsChecked == true))
-            //    {
-            //        Patient.Amount = patient.TestingType.Amount;
-            //    }
-            //}
+            
             if (Patient.WithoutDoc)
             {
                 foreach (var item in TestingTypeList)
@@ -161,18 +125,7 @@ namespace MedStarHospital.ViewModel
                 {
                     MessageBox.Show(ex.Message);
                 }
-                //BorrowModel bm = param as BorrowModel;
-                //Sql_Connection.sql_connection();
-                //string Query = $"insert into tblPayment(PaymentID,Borrowid,NoOfDays,Amount,paid,balance) values('"+Payment.PaymentID+"','"+ selectedBorrow.Borrowid+"','"+Payment.ExtraDays+"','"+Payment.FineAmount+"','"+Payment.Paid+"','"+Payment.Balance+"')";
-                //SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
-                //SqlDataAdapter adapter = new SqlDataAdapter();
-                //adapter.InsertCommand = new SqlCommand(Query, Sql_Connection.getconnection());
-                //adapter.InsertCommand.ExecuteNonQuery();
-                //adapter.Dispose();
-                //command.Dispose();
-                //Sql_Connection.close_connection();
-                //MessageBox.Show("Successfully added", "Add", MessageBoxButton.OK, MessageBoxImage.Information);
-                //exit.Invoke();
+               
             }
             else
             {
@@ -228,20 +181,6 @@ namespace MedStarHospital.ViewModel
             get { return _testingtypelist; }
             set { _testingtypelist = value; OnPropertyChanged(); }
         }
-        //private PaymentModel _payment;
-
-        //public PaymentModel Payment
-        //{
-        //    get { return _payment; }
-        //    set { _payment = value; OnPropertyChanged(); }
-        //}
-
-        //private PaymentModel _payment;
-
-        //public PaymentModel Payment
-        //{
-        //    get { return _payment; }
-        //    set { _payment = value; OnPropertyChanged(); }
-        //}
+        
     }
 }
