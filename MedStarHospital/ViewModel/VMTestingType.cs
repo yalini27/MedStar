@@ -179,8 +179,8 @@ namespace MedStarHospital.ViewModel
                     string QUERY = $"delete from tblTestingType where TestingTypeID = {bv.TestingTypeID}";
                     SqlCommand command = new SqlCommand(QUERY, Sql_Connection.getconnection());
                     SqlDataAdapter adapter = new SqlDataAdapter();
-                    adapter.InsertCommand = new SqlCommand(QUERY, Sql_Connection.getconnection());
-                    adapter.InsertCommand.ExecuteNonQuery();
+                    adapter.DeleteCommand = new SqlCommand(QUERY, Sql_Connection.getconnection());
+                    adapter.DeleteCommand.ExecuteNonQuery();
                     adapter.Dispose();
                     command.Dispose();
                     Sql_Connection.close_connection();
