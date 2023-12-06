@@ -93,12 +93,6 @@ namespace MedStarHospital.ViewModel
                     Column = "DoctorName";
                     break;
 
-                case "Visiting Time":
-                    Column = "VisitingTime";
-                    break;
-                case "Department ID":
-                    Column = "DepID";
-                    break;
 
                 default:
                     MessageBox.Show("Invalid Option");

@@ -53,7 +53,7 @@ namespace MedStarHospital.ViewModel
         {
 
 
-            switch (Field) // ithu null aa irukku. Sele
+            switch (Field) 
             {
                 case "User ID":
                     Column = "userID";
@@ -141,6 +141,7 @@ namespace MedStarHospital.ViewModel
             get { return _user; }
             set { _user = value; OnPropertyChanged(); }
         }
+
 
         private ObservableCollection<UserModel> _userlist;
 

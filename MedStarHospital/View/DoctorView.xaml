@@ -29,8 +29,7 @@
                             <ComboBox Text="{Binding Field, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="40" Width="250" Margin="50 30 0 0" FontSize="25" FontFamily="times new roman" VerticalAlignment="Center">
                                 <ComboBoxItem Content="Doctor ID"/>
                                 <ComboBoxItem Content="Doctor Name"/>
-                                <ComboBoxItem Content="Visiting Time"/>
-                                <ComboBoxItem Content="Department ID"/>
+
 
                             </ComboBox>
                             <TextBox Text="{Binding Find, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Height="40" Width="250" Margin="50 10 0 0" FontSize="25" FontFamily="times new roman"/>
