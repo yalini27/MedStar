@@ -126,18 +126,7 @@ namespace MedStarHospital.ViewModel
         }
 
         public ICommand cmdLogin { get { return new RelayCommand(fnLogin); } }
-        public ICommand cmdPatientLogin { get {return new RelayCommand(fnPatientLogin); } }
 
-        void fnPatientLogin(object param)
-        {
-            if(validation())
-            {
-                HomeView main = new HomeView();
-                main.DataContext = new VMHome(SelectedUser);
-                exit.Invoke();
-                main.ShowDialog();
-            }   
-        }
 
 
         private string _phoneno;

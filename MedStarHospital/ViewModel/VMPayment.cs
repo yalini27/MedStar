@@ -115,9 +115,6 @@ namespace MedStarHospital.ViewModel
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     adapter.InsertCommand = new SqlCommand(Query, Sql_Connection.getconnection());
                     adapter.InsertCommand.ExecuteNonQuery();
-                    //adapter.Dispose();
-                    //command.Dispose();
-                    //Sql_Connection.close_connection();
                     MessageBox.Show("Successfully added", "Add", MessageBoxButton.OK, MessageBoxImage.Information);
                     exit.Invoke();
                 }

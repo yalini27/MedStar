@@ -42,8 +42,6 @@ namespace MedStarHospital.ViewModel
             get { return userr; }
             set { userr = value; OnPropertyChanged(); }
         }
-        public ICommand cmdUsers { get { return new RelayCommand(fnUser, fnCanExecuteUser); } }
-        public ICommand cmdDepartment { get { return new RelayCommand(fnDepartment); } }
 
         public ICommand cmdCommonAll { get { return new RelayCommand(fncommon, fncanExecuteCommon); } }
 
@@ -114,21 +112,7 @@ namespace MedStarHospital.ViewModel
 
         }
 
-
-        public ICommand cmdExit { get { return new RelayCommand(fnBack); } }
-        void fnDepartment(object param)
-        {
-            VMDepartment vd = new VMDepartment(User);
-            Control.Content = new DepartmentView();
-            Control.DataContext = vd;
-        }
-
-        void fnUser(object param)
-        {
-            VMUsers vm = new VMUsers();
-            Control.Content = new UserView();
-            Control.DataContext = vm;
-        }
+ 
 
         bool fncanExecuteCommon(object o)
         {
@@ -146,38 +130,9 @@ namespace MedStarHospital.ViewModel
 
         }
 
-        bool fnCanExecuteUser(object o)
-        {
-            return User.Role.ToLower() == "admin" ? true : false;
-        }
-
-        bool fnCanExecutereceptionist(object o)
-        {
-            return User.Role.ToLower() == "receptionist" ? true : false;
-        }
-
-        bool fnCanExecuteDoctor(object o)
-        {
-            return User.Role.ToLower() == "doctor" ? true : false;
-        }
-
-
 
       
         public static Action exit;
-        void fnBack(object param)
-        {
-            if (MessageBox.Show("Do you want to close this page?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                LoginPageView mv = new LoginPageView();
-                mv.DataContext = new VMLogin();
-                exit.Invoke();
-                mv.ShowDialog();
-            }
-        }
-
-       
-
 
         private DepartmentModel _department;
 
