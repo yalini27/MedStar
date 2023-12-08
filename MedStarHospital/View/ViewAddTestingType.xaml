@@ -14,12 +14,12 @@
 
         </Grid.RowDefinitions>
         <Grid Background="SkyBlue">
-            <TextBlock Text="Testing Type Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
+            <TextBlock Text="Medical Test Details" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Black" Foreground="#1e3d59"/>
         </Grid>
 
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">
-            <TextBlock Text="Medical Testing Type ID" Height="40" Width="350" FontSize="30" Margin="50 40 0 0" HorizontalAlignment="Left"/>
-            <TextBlock Text="Medical Testing Type Name" Height="40" Width="370" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Medical Test Type ID" Height="40" Width="350" FontSize="30" Margin="50 40 0 0" HorizontalAlignment="Left"/>
+            <TextBlock Text="Medical Test Type Name" Height="40" Width="370" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
             <TextBlock Text="Amount " Height="40" Width="250" FontSize="30" Margin="50 20 0 0" HorizontalAlignment="Left"/>
         </VirtualizingStackPanel>
         <VirtualizingStackPanel Orientation="Vertical" Grid.Row="1">

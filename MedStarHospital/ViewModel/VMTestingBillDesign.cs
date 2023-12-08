@@ -15,15 +15,11 @@ namespace MedStarHospital.ViewModel
         {
             Bill = new();
             Bill.Patient = new PatientModel();
-            //PatientBill = patient;
-            //PatientBill.PatientId = patient.PatientId;
+
             PatientBill.PatientName = patient.PatientName;
-            //PatientBill.Phonenumber = patient.Phonenumber;
-            //PatientBill.Department.DepartmentID = patient.Department.DepartmentID;
-            //PatientBill.Doctor.Doctorid = patient.Doctor.Doctorid;
+
             PatientBill.Bookingdate = patient.Bookingdate;
-            //Bill.Patient.HospitalFee = 500;
-            //Bill.Patient.DoctorFee = 1500;
+
         }
         public static Action exit;
 
@@ -34,25 +30,6 @@ namespace MedStarHospital.ViewModel
             exit.Invoke();
         }
 
-        //void billview((ObservableCollection<PatientModel> PatientBillList, PatientModel PatientBill, DateTime Bookingdate, string TestingType))
-        //{
-        //    this.PatientBillList = PatientBillList;
-        //    PatientBill = new PatientModel
-        //    {
-        //        PatientId = PatientBill.PatientId,
-        //        PatientName = PatientBill.PatientName,
-        //        Bookingdate = PatientBill.Bookingdate,
-        //        TestingType = new TestingTypeModel
-        //        {
-        //            TestingTypeName = PatientBill.TestingType.TestingTypeName,
-        //            Amount = PatientBill.TestingType.Amount
-        //        }
-
-        //    }
-        //    ;
-        //}
-
-
         private double amount;
 
         public double Amount
@@ -61,21 +38,6 @@ namespace MedStarHospital.ViewModel
             set { amount = value; OnPropertyChanged(); }
         }
 
-
-        //public VMTestingBillDesign(PatientModel patient)
-        //{
-        //    Bill = new();
-        //    Bill.Patient = new PatientModel();
-        //    //PatientBill = patient;
-        //    //PatientBill.PatientId = patient.PatientId;
-        //    PatientBill.PatientName = patient.PatientName;
-        //    //PatientBill.Phonenumber = patient.Phonenumber;
-        //    //PatientBill.Department.DepartmentID = patient.Department.DepartmentID;
-        //    //PatientBill.Doctor.Doctorid = patient.Doctor.Doctorid;
-        //    PatientBill.Bookingdate = patient.Bookingdate;
-        //    //Bill.Patient.HospitalFee = 500;
-        //    //Bill.Patient.DoctorFee = 1500;
-        //}
 
 
         private PatientModel _patientbill;

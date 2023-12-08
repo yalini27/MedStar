@@ -73,7 +73,7 @@ namespace MedStarHospital.ViewModel
                 };
                 
                 btn = "UPDATE";
-                btnback = "BACK";
+                btnback = "CLOSE";
                 
             }
             
@@ -183,7 +183,6 @@ namespace MedStarHospital.ViewModel
         public bool validation()
         {
             bool result = false;
-            bool crtid = Department.DepartmentID > 0;
 
             if(!(Regex.IsMatch(Department.DepartmentName, @"^[a-zA-Z\s]*$")))
             {
@@ -194,7 +193,7 @@ namespace MedStarHospital.ViewModel
             bool crtnam = !string.IsNullOrWhiteSpace(Department.DepartmentName) && !(int.TryParse(Department.DepartmentName, out name)) && !Department.DepartmentName.All(sp => !char.IsLetter(sp));
  
 
-            if ( crtnam && crtid)
+            if ( crtnam)
             {
                 result = true;
             }

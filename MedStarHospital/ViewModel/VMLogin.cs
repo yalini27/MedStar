@@ -19,11 +19,7 @@ namespace MedStarHospital.ViewModel
         public VMLogin()
         {
             fngetUser();
-            SelectedUser = new UserModel();
-            HideOption = "Hidden";
-            VisibleOption = "Visible";
-            Visible = true;
-            Hide = false;   
+            SelectedUser = new UserModel();  
         }
         public ICommand cmdExit { get { return new RelayCommand(fnExit); } }
         public ICommand cmdAbout { get { return new RelayCommand(fnAbout); } }
@@ -36,62 +32,7 @@ namespace MedStarHospital.ViewModel
                 exit.Invoke();
             }
         }
-
-        private bool _hide;
-        public bool Hide
-        {
-            get { return _hide; }
-            set { _hide = value; OnPropertyChanged();
-
-                if (Hide)
-                {
-                    VisibleOption = "Hidden";
-                    HideOption = "Visible";
-                }
-                else
-                {
-                    VisibleOption = "Visible";
-                    HideOption = "Hidden";
-                }
-            }
-        }
         
-
-        private bool _visible;
-
-        public bool Visible
-        {
-            get { return _visible; }
-            set { _visible = value; OnPropertyChanged(); 
-            if(Visible)
-                {
-                    VisibleOption = "Visible";
-                    HideOption = "Hidden";
-
-                }
-            else
-                {
-                    VisibleOption = "Hidden";
-                    HideOption = "Visible";
-                }
-            }
-        }
-
-
-        private string _visibleoption;
-        public string VisibleOption
-        {
-            get { return _visibleoption; }
-            set { _visibleoption = value; OnPropertyChanged(); }
-        }
-
-        private string _hideopt;
-        public string HideOption
-        {
-            get { return _hideopt; }
-            set { _hideopt = value; OnPropertyChanged();             
-            }
-        }
 
         void fnAbout(object param)
         {
@@ -99,13 +40,6 @@ namespace MedStarHospital.ViewModel
             hv.DataContext = new VMAbout();
             exit.Invoke();
             hv.ShowDialog();
-        }
-
-        private string _field;
-        public string Field
-        {
-            get { return _field; }
-            set { _field = value;OnPropertyChanged(); }
         }
 
 
@@ -127,30 +61,6 @@ namespace MedStarHospital.ViewModel
 
         public ICommand cmdLogin { get { return new RelayCommand(fnLogin); } }
 
-
-
-        private string _phoneno;
-
-        public string PhoneNumber
-        {
-            get { return _phoneno; }
-            set { _phoneno = value; OnPropertyChanged();
-
-
-                if (!(PhoneNumber.Count(char.IsDigit) == 9))
-                    PatientPhoneError = "Invalid Phone Number";
-                else
-                    PatientPhoneError = "";
-            }
-        }
-
-
-        private string _patientPhoneError;
-        public string PatientPhoneError
-        {
-            get { return _patientPhoneError; }
-            set { _patientPhoneError = value; OnPropertyChanged(); }
-        }
 
         void fnLogin(object param)
         {
@@ -203,24 +113,6 @@ namespace MedStarHospital.ViewModel
             Sql_Connection.close_connection();
         }
 
-        public bool validation()
-        {
-            bool result = false;
-            bool phoneno = ((PhoneNumber != null) && (PhoneNumber.Count(char.IsDigit) == 9));
-            if(phoneno)
-            {
-                result = true;
-            }
-           
-            return result;
-        }
-        private HomeModel option;
-
-        public HomeModel Option
-        {
-            get { return option; }
-            set { option = value; OnPropertyChanged(); }
-        }
 
         private UserModel _user = new UserModel();
 

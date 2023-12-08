@@ -144,6 +144,7 @@ namespace MedStarHospital.ViewModel
 
         void fnReset(object param)
         {
+            Find = string.Empty;
             fnView();
         }
 

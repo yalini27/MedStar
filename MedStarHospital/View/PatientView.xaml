@@ -50,7 +50,7 @@
                                         <ComboBoxItem Content="Patient ID"/>
                                         <ComboBoxItem Content="Patient Name"/>
 
-                                        <ComboBoxItem Content="Department ID"/>
+                                        <ComboBoxItem Content="Spe.Unit ID"/>
                                         <ComboBoxItem Content="Doctor ID"/>
                                         <!--<ComboBoxItem Content="Test Type ID"/>-->
 
@@ -133,7 +133,7 @@
                     </DataGridTemplateColumn>
 
 
-                    <DataGridTemplateColumn Header="Department ID" Width="1*">
+                    <DataGridTemplateColumn Header="Spe.Unit ID" Width="1*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Department.DepartmentID,TargetNullValue=Null}" VerticalAlignment="Center"/>
@@ -141,7 +141,7 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
-                    <DataGridTemplateColumn Header="Department Name" Width="1*" >
+                    <DataGridTemplateColumn Header="Spe.Unit Name" Width="1*" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Department.DepartmentName,TargetNullValue=Null}" VerticalAlignment="Center"/>

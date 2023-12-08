@@ -37,7 +37,7 @@
 
                             <StackPanel Orientation="Horizontal" Margin="-850 0 0 0">
                                 <Button Style="{DynamicResource ButtonStyle1}" Content="Add" Command="{Binding cmdAddDep}"  FontSize="20" FontWeight="Black"  Margin="50 5 0 0"/>
-                                <Button Style="{DynamicResource ButtonStyle1}" Command="{Binding cmdReset}" Content="Reset"  FontSize="20" FontWeight="Black"  Margin="10 5 0 0"/>
+                            <Button Style="{DynamicResource ButtonStyle1}" Command="{Binding cmdReset}" Content="Reset"  FontSize="20" FontWeight="Black"  Margin="10 5 0 0"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>

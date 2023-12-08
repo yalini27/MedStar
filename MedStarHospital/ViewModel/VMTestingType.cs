@@ -124,6 +124,7 @@ namespace MedStarHospital.ViewModel
 
         void fnReset(object param)
         {
+            Find = string.Empty;
             TestingTypeList = new ObservableCollection<TestingTypeModel>();
             Sql_Connection.sql_connection();
             string Query = $"select *  from tblTestingType ";

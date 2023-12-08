@@ -137,22 +137,8 @@ namespace MedStarHospital.ViewModel
 
         void fnReset(object param)
         {
-         
-            Departments = new List<DepartmentModel>();
-            Sql_Connection.sql_connection();
-            string Query = $"select * from tblDepartment";
-            SqlCommand command = new SqlCommand(Query, Sql_Connection.getconnection());
-            var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                Departments.Add(new DepartmentModel
-                {
-                    DepartmentID = int.Parse(reader.GetValue(0).ToString()),
-                    DepartmentName = reader.GetValue(1).ToString(),
-
-                });
-            }
-            Sql_Connection.close_connection();
+            Find = string.Empty;
+            fnView();
         }
         void fnDelete(object param)
         {

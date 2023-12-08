@@ -131,6 +131,7 @@ namespace MedStarHospital.ViewModel
 
         void fnReset(object param)
         {
+            Find = string.Empty;
             Doctors = new List<DoctorModel>();
             Sql_Connection.sql_connection();
             string Query = $"select *  from tblDoctor ";

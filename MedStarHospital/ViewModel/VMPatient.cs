@@ -178,7 +178,7 @@ namespace MedStarHospital.ViewModel
                         break;
 
 
-                    case "Department ID":
+                    case "Spe.Unit ID":
                         Column = "BookingDepID";
                         break;
 
@@ -277,6 +277,7 @@ namespace MedStarHospital.ViewModel
 
         void fnReset(object param)
         {
+            Find = string.Empty;
             //fnView();
             if (WithDoc)
             {
