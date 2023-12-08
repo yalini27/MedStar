@@ -185,7 +185,7 @@ namespace MedStarHospital.ViewModel
                         if (validation())
                         {
                             Sql_Connection.sql_connection();
-                            string Query = $"update tblAmbulance set DriverID = '" + Ambulance.Driver.DriverID + "',ActiveStatus='" + Ambulance.ActiveStatus + "',AmbulanceNumber='" + Ambulance.AmbulanceNumber + "' where AmbulanceID ='" + Ambulance.AmbulanceID + "'";
+                            string Query = $"update tblAmbulance set DriverID = '" + SelectedDriver.DriverID + "',ActiveStatus='" + Ambulance.ActiveStatus + "',AmbulanceNumber='" + Ambulance.AmbulanceNumber + "' where AmbulanceID ='" + Ambulance.AmbulanceID + "'";
                             SqlCommand command1 = new SqlCommand(Query, Sql_Connection.getconnection());
                             SqlDataAdapter adapter1 = new SqlDataAdapter();
                             adapter1.InsertCommand = new SqlCommand(Query, Sql_Connection.getconnection());
